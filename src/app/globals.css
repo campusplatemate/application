@@ -1,11 +1,39 @@
+:root {
+  --nat-navbar-bg: rgb(123, 176, 84);
+  --nat-navbar-bg-color: 123, 176, 84;
+  --nat-navbar-bg-rgb: 123, 176, 84;
+  --nat-navbar-text-color: white;
+}
+
 html,
 body {
-  --bs-light-rgb: 236, 236, 236;
+  --bs-dark: var(--nat-navbar-bg);
+  --bs-light-rgb: 97, 163, 90;
+  --bs-dark-rgb: var(--nat-navbar-bg-rgb);
   box-sizing: border-box;
   height: 100%;
   padding: 0;
   margin: 0;
+  background: center fixed url("/green-ombre.jpg");
+  background-size: cover;
 }
+
+body .navbar {
+  --bs-navbar-active-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-brand-color: var(--nat-navbar-text-color);
+  --bs-navbar-brand-hover-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-color: var(--nat-navbar-text-color);
+  --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
+}
+
+footer, footer a {
+  color: var(--nat-navbar-text-color);
+}
+
+.bg-dark a.dropdown-item {
+  color: var(--nat-navbar-bg);
+}
+
 .wrapper {
   box-sizing: border-box;
   min-height: 100%;
