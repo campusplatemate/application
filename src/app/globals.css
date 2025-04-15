@@ -40,3 +40,34 @@ footer, footer a {
   display: flex;
   flex-direction: column;
 }
+
+#banner-div {
+  position: relative;
+  width: 100%;
+}
+#banner-image {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+
+}
+
+#profile-image {
+  height: 200px;
+  width: 200px;
+  border-color: white;
+  border-width: 2px;
+}
+
+#profile-nav {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-size: 20px;
+
+}
+
+#profile-cards {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-size: 20px;
+}
