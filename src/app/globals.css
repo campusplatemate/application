@@ -40,3 +40,7 @@ footer, footer a {
   display: flex;
   flex-direction: column;
 }
+
+.green-link {
+  color: green;
+}
