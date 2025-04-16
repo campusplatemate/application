@@ -47,8 +47,8 @@ const SignUp = () => {
     <main>
       <Container>
         <Row className="justify-content-center">
-          <Col xs={5}>
-            <h1 className="text-center">Sign Up</h1>
+          <Col xs={6}>
+            <h1 className="text-center pt-4 pb-2">Sign Up</h1>
             <Card>
               <Card.Body>
                 <Form onSubmit={handleSubmit(onSubmit)}>
@@ -62,7 +62,7 @@ const SignUp = () => {
                     <div className="invalid-feedback">{errors.email?.message}</div>
                   </Form.Group>
 
-                  <Form.Group className="form-group">
+                  <Form.Group className="form-group mt-2">
                     <Form.Label>Password</Form.Label>
                     <input
                       type="password"
@@ -71,7 +71,7 @@ const SignUp = () => {
                     />
                     <div className="invalid-feedback">{errors.password?.message}</div>
                   </Form.Group>
-                  <Form.Group className="form-group">
+                  <Form.Group className="form-group mt-2">
                     <Form.Label>Confirm Password</Form.Label>
                     <input
                       type="password"
@@ -83,12 +83,12 @@ const SignUp = () => {
                   <Form.Group className="form-group py-3">
                     <Row>
                       <Col>
-                        <Button type="submit" className="btn btn-primary">
+                        <Button type="submit" className="mt-2" variant="outline-success">
                           Register
                         </Button>
                       </Col>
                       <Col>
-                        <Button type="button" onClick={() => reset()} className="btn btn-warning float-right">
+                        <Button type="button" onClick={() => reset()} className="mt-2" variant="outline-warning">
                           Reset
                         </Button>
                       </Col>
@@ -98,7 +98,10 @@ const SignUp = () => {
               </Card.Body>
               <Card.Footer>
                 Already have an account?
-                <a href="/auth/signin">Sign in</a>
+                {' '}
+                <a href="/auth/signin" className="green-link">
+                  Sign in
+                </a>
               </Card.Footer>
             </Card>
           </Col>
