@@ -32,7 +32,7 @@ const EditStuffForm = ({ stuff }: { stuff: Stuff }) => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Edit Stuff</h2>
+            <h2>Edit Food Description</h2>
           </Col>
           <Card>
             <Card.Body>
@@ -77,12 +77,17 @@ const EditStuffForm = ({ stuff }: { stuff: Stuff }) => {
                 <Form.Group className="form-group">
                   <Row className="pt-3">
                     <Col>
-                      <Button type="submit" variant="primary">
+                      <Button className="submitButton" type="submit" variant="primary">
                         Submit
                       </Button>
                     </Col>
                     <Col>
-                      <Button type="button" onClick={() => reset()} variant="warning" className="float-right">
+                      <Button
+                        type="button"
+                        onClick={() => reset()}
+                        variant="warning"
+                        className="float-right resetButton"
+                      >
                         Reset
                       </Button>
                     </Col>
