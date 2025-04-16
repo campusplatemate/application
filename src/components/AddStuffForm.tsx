@@ -48,7 +48,7 @@ const AddStuffForm: React.FC = () => {
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>Food</Form.Label>
                   <input
                     type="text"
                     {...register('name')}
@@ -66,7 +66,7 @@ const AddStuffForm: React.FC = () => {
                   <div className="invalid-feedback">{errors.quantity?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Condition</Form.Label>
+                  <Form.Label>Estimated Expiration Date</Form.Label>
                   <select {...register('condition')} className={`form-control ${errors.condition ? 'is-invalid' : ''}`}>
                     <option value="excellent">Excellent</option>
                     <option value="good">Good</option>
