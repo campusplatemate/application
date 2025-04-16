@@ -42,13 +42,13 @@ const AddStuffForm: React.FC = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Add Stuff</h2>
+            <h2>Add Food Item</h2>
           </Col>
           <Card>
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>Food</Form.Label>
                   <input
                     type="text"
                     {...register('name')}
@@ -66,7 +66,7 @@ const AddStuffForm: React.FC = () => {
                   <div className="invalid-feedback">{errors.quantity?.message}</div>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Condition</Form.Label>
+                  <Form.Label>Estimated Expiration Date</Form.Label>
                   <select {...register('condition')} className={`form-control ${errors.condition ? 'is-invalid' : ''}`}>
                     <option value="excellent">Excellent</option>
                     <option value="good">Good</option>
@@ -79,12 +79,17 @@ const AddStuffForm: React.FC = () => {
                 <Form.Group className="form-group">
                   <Row className="pt-3">
                     <Col>
-                      <Button type="submit" variant="primary">
+                      <Button className="submitButton" type="submit" variant="primary">
                         Submit
                       </Button>
                     </Col>
                     <Col>
-                      <Button type="button" onClick={() => reset()} variant="warning" className="float-right">
+                      <Button
+                        type="button"
+                        onClick={() => reset()}
+                        variant="warning"
+                        className="float-right resetButton"
+                      >
                         Reset
                       </Button>
                     </Col>

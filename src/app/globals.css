@@ -74,3 +74,14 @@ footer, footer a {
 .green-link {
   color: green;
 }
+
+.submitButton {
+  background-color: rgb(123, 176, 84)!important;
+  border-color: rgb(123, 176, 84)!important
+}
+
+.resetButton {
+  color: white!important;
+  background-color: rgb(120, 194, 108)!important;
+  border-color: rgb(120, 194, 108)!important
+}
