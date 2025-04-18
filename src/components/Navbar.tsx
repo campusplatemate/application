@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, Lock, Person, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+// import ProfilePage from './ProfilePage';
 
 const NavBar: React.FC = () => {
   const { data: session } = useSession();
@@ -44,7 +45,7 @@ const NavBar: React.FC = () => {
           <Nav>
             {session ? (
               <NavDropdown id="login-dropdown" title={currentUser}>
-                <NavDropdown.Item id="login-dropdown-profile" href="/api/auth/profile">
+                <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
                   <Person />
                   Profile
                 </NavDropdown.Item>
