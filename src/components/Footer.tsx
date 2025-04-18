@@ -7,7 +7,7 @@ const Footer = () => (
       <Col className="text-center">
         Campus Plate Mate
         <br />
-        Made by Kimi Li, Lou Rae Robles, Ka&apos;ili Benavente, Ruhi Pirnia, Naydel Espiritu, Jaylin Morimoto.
+        Made by Kimi Qi, Lou Rae Robles, Ka&apos;ili Benavente, Ruhi Pirnia, Naydel Espiritu, Jaylin Morimoto.
         <br />
         ICS 314 Software Engineering, University of Hawaii at Manoa.
       </Col>
