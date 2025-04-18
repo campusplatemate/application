@@ -35,7 +35,7 @@ const SignIn = () => {
                 <Form method="post" onSubmit={handleSubmit}>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <input name="email" type="text" className="form-control" />
+                    <input name="email" type="text" className="form-control mb-2" />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password</Form.Label>
@@ -49,7 +49,7 @@ const SignIn = () => {
               </Card.Body>
               <Card.Footer>
                 Don&apos;t have an account?&nbsp;
-                <a href="/auth/signup">Sign up</a>
+                <a href="/auth/signup" className="green-link">Sign up</a>
               </Card.Footer>
             </Card>
           </Col>
