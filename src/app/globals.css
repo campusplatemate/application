@@ -5,6 +5,10 @@
   --nat-navbar-text-color: white;
 }
 
+.form-label {
+  font-family: var(--font-dm-sans) !important;
+}
+
 html,
 body {
   --bs-dark: var(--nat-navbar-bg);
@@ -75,13 +79,26 @@ footer, footer a {
   color: green;
 }
 
-.submitButton {
-  background-color: rgb(123, 176, 84)!important;
-  border-color: rgb(123, 176, 84)!important
+ .submitButton {
+  color: rgb(0, 0, 0)!important;
+  background-color: rgb(255, 229, 81)!important;
+  border-color: rgb(255, 229, 81)!important;;
+} 
+
+.submitButton:hover {
+  background-color: rgb(231, 201, 32)!important;
+  border-color: rgb(231, 201, 32) !important;
 }
 
 .resetButton {
-  color: white!important;
-  background-color: rgb(120, 194, 108)!important;
-  border-color: rgb(120, 194, 108)!important
+  color: rgb(0, 0, 0)!important;
+  background-color: rgb(239, 239, 239)!important;
+}
+
+.resetButton:hover {
+  background-color: #b4b4b4 !important;
+}
+
+input {
+  margin-bottom: 20px !important;
 }

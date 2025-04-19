@@ -6,7 +6,10 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/Navbar';
 import Providers from './providers';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 export const metadata: Metadata = {
   title: 'Campus Plate Mate',
