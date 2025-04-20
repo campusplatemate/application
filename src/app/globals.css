@@ -18,7 +18,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background: center fixed url("/green-ombre.jpg");
+  background: center fixed url('/green-ombre.jpg');
   background-size: cover;
 }
 
@@ -30,7 +30,8 @@ body .navbar {
   --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
 }
 
-footer, footer a {
+footer,
+footer a {
   color: var(--nat-navbar-text-color);
 }
 
@@ -53,7 +54,6 @@ footer, footer a {
   height: 200px;
   object-fit: cover;
   width: 100%;
-
 }
 
 #profile-image {
@@ -67,7 +67,6 @@ footer, footer a {
   padding-top: 30px;
   padding-bottom: 40px;
   font-size: 20px;
-
 }
 
 #profile-cards {
@@ -101,4 +100,29 @@ footer, footer a {
 
 input {
   margin-bottom: 20px !important;
+}
+.plate-mate-green {
+  color: rgb(123, 176, 84) !important;;
+}
+
+.gray-underline {
+  display: inline-block;
+  border-bottom: 1px solid rgb(123, 176, 84);
+  padding-bottom: 3px;
+}
+
+.submitButton {
+  background-color: rgb(123, 176, 84) !important;
+  border-color: rgb(123, 176, 84) !important;
+}
+
+.resetButton {
+  color: white !important;
+  background-color: rgb(120, 194, 108) !important;
+  border-color: rgb(120, 194, 108) !important;
+}
+
+.custom-card {
+  max-width: 400px;
+  margin: 0 auto;
 }
