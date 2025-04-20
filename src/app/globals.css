@@ -87,6 +87,7 @@ footer a {
 .submitButton:hover {
   background-color: rgb(231, 201, 32)!important;
   border-color: rgb(231, 201, 32) !important;
+
 }
 
 .resetButton {
@@ -101,25 +102,14 @@ footer a {
 input {
   margin-bottom: 20px !important;
 }
+
 .plate-mate-green {
   color: rgb(123, 176, 84) !important;;
-}
-
-.gray-underline {
-  display: inline-block;
-  border-bottom: 1px solid rgb(123, 176, 84);
-  padding-bottom: 3px;
 }
 
 .submitButton {
   background-color: rgb(123, 176, 84) !important;
   border-color: rgb(123, 176, 84) !important;
-}
-
-.resetButton {
-  color: white !important;
-  background-color: rgb(120, 194, 108) !important;
-  border-color: rgb(120, 194, 108) !important;
 }
 
 .custom-card {
