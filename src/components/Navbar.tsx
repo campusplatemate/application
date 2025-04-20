@@ -5,7 +5,7 @@
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, Lock, Person, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
 
 const NavBar: React.FC = () => {
@@ -29,8 +29,8 @@ const NavBar: React.FC = () => {
                   <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
                     Add Food
                   </Nav.Link>,
-                  <Nav.Link id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
-                    Rewards Page
+                  <Nav.Link id="list-stuff-nav" href="/rewards" key="rewards" active={pathName === '/rewards'}>
+                    Rewards
                   </Nav.Link>,
                 ]
               : ''}
@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
             {session ? (
               <NavDropdown id="login-dropdown" title={currentUser}>
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
-                  <Person />
+
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
