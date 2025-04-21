@@ -5,6 +5,10 @@
   --nat-navbar-text-color: white;
 }
 
+.form-label {
+  font-family: var(--font-dm-sans) !important;
+}
+
 html,
 body {
   --bs-dark: var(--nat-navbar-bg);
@@ -14,7 +18,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background: center fixed url("/green-ombre.jpg");
+  background: center fixed url('/green-ombre.jpg');
   background-size: cover;
 }
 
@@ -26,7 +30,8 @@ body .navbar {
   --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
 }
 
-footer, footer a {
+footer,
+footer a {
   color: var(--nat-navbar-text-color);
 }
 
@@ -49,7 +54,6 @@ footer, footer a {
   height: 200px;
   object-fit: cover;
   width: 100%;
-
 }
 
 #profile-image {
@@ -63,7 +67,6 @@ footer, footer a {
   padding-top: 30px;
   padding-bottom: 40px;
   font-size: 20px;
-
 }
 
 #profile-cards {
@@ -75,15 +78,43 @@ footer, footer a {
   color: green;
 }
 
-.submitButton {
-  background-color: rgb(123, 176, 84)!important;
-  border-color: rgb(123, 176, 84)!important
+ .submitButton {
+  color: rgb(0, 0, 0)!important;
+  background-color: rgb(255, 229, 81)!important;
+  border-color: rgb(255, 229, 81)!important;;
+} 
+
+.submitButton:hover {
+  background-color: rgb(231, 201, 32)!important;
+  border-color: rgb(231, 201, 32) !important;
+
 }
 
 .resetButton {
-  color: white!important;
-  background-color: rgb(120, 194, 108)!important;
-  border-color: rgb(120, 194, 108)!important
+  color: rgb(0, 0, 0)!important;
+  background-color: rgb(239, 239, 239)!important;
+}
+
+.resetButton:hover {
+  background-color: #b4b4b4 !important;
+}
+
+input {
+  margin-bottom: 20px !important;
+}
+
+.plate-mate-green {
+  color: rgb(123, 176, 84) !important;;
+}
+
+.submitButton {
+  background-color: rgb(123, 176, 84) !important;
+  border-color: rgb(123, 176, 84) !important;
+}
+
+.custom-card {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .slider-form-container {

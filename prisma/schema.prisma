@@ -30,17 +30,10 @@ model User {
   role     Role   @default(USER)
 }
 
-enum Condition {
-  excellent
-  good
-  fair
-  poor
-}
-
-model Stuff {
-  id        Int       @id @default(autoincrement())
-  name      String
-  quantity  Int
-  condition Condition @default(good)
-  owner     String
+model RewardItem {
+  id           Int       @id @default(autoincrement())
+  name         String    @unique
+  cost         Int
+  imageUrl     String
+  quantity     Int      @default(0)
 }

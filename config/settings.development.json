@@ -4,10 +4,19 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "RewardItems": [
+    { "title": "Apple iPad", "imageUrl": "ipad.png", "cost": 9500, "quantity": 10 },
+    { "title": "Apple Watch SE", "imageUrl": "watch.png", "cost": 8500, "quantity": 10 },
+    { "title": "Apple Airpods Pro", "imageUrl": "airpods.png", "cost": 8500, "quantity": 10 },
+
+    { "title": "Tote Bag", "imageUrl": "tote.png", "cost": 7500, "quantity": 10 },
+    { "title": "T-Shirt", "imageUrl": "tshirt.png", "cost": 8000, "quantity": 10 },
+    { "title": "Baseball Hat", "imageUrl": "cap.png", "cost": 7000, "quantity": 10 },
+
+    { "title": "$20 Amazon Gift Card", "imageUrl": "amazon.png", "cost": 4500, "quantity": 10 },
+    { "title": "$10 Dominos Gift Card", "imageUrl": "dominos.png", "cost": 3500, "quantity": 10 },
+    { "title": "$10 Subway Gift Card", "imageUrl": "subway.png", "cost": 3500, "quantity": 10 }
   ]
 }
+
+
