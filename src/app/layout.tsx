@@ -21,10 +21,12 @@ export default function RootLayout({
   const classString = `${inter.className} wrapper`;
   return (
     <html lang="en">
-      <body className={classString}>
+      <body className={classString} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Providers>
           <NavBar />
-          {children}
+          <main style={{ flexGrow: 1 }}>
+            {children}
+          </main>
           <Footer />
         </Providers>
       </body>

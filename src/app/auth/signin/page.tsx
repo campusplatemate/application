@@ -1,11 +1,45 @@
+/* eslint-disable max-len */
+
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { Button, Card, Col, Container, Form, Row, Image } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { useState } from 'react';
+import { Button, Form, Image } from 'react-bootstrap';
+import { createUser } from '@/lib/dbActions';
 
-/** The sign in page. */
+type SignUpForm = {
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+/** The sign in/up page. */
 const SignIn = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [isRightPanelActive, setIsRightPanelActive] = useState(false);
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().required('Email is required').email('Email is invalid'),
+    password: Yup.string()
+      .required('Password is required')
+      .min(6, 'Password must be at least 6 characters')
+      .max(40, 'Password must not exceed 40 characters'),
+    confirmPassword: Yup.string()
+      .required('Confirm Password is required')
+      .oneOf([Yup.ref('password'), ''], 'Passwords must match'),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpForm>({
+    resolver: yupResolver(validationSchema),
+  });
+
+  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       email: { value: string };
@@ -24,41 +58,80 @@ const SignIn = () => {
     }
   };
 
+  const onSubmit = async (data: SignUpForm) => {
+    await createUser(data);
+    await signIn('credentials', { callbackUrl: '/add', ...data });
+  };
+  /** */
   return (
-    <main>
-      <Container className="mt-5">
-        <Row>
-          <Col className="justify-content-start">
-            <h1 className="text-center mb-4">Sign In</h1>
-            <Card>
-              <Card.Body>
-                <Form method="post" onSubmit={handleSubmit}>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <input name="email" type="text" className="form-control mb-2" />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <input name="password" type="password" className="form-control" />
-                  </Form.Group>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100%',
+    }}
+    >
+      <div className={`container slider-form-container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
+        <div className="form-container sign-up-container">
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <h1>Create Account</h1>
+            <input
+              type="email"
+              placeholder="Email"
+              {...register('email')}
+              className={errors.email ? 'input-error' : ''}
+            />
+            <div className="error-text">{errors.email?.message}</div>
 
-                  <Button type="submit" className="mt-3" size="lg" variant="outline-success">
-                    Sign In
-                  </Button>
-                </Form>
-              </Card.Body>
-              <Card.Footer>
-                Don&apos;t have an account?&nbsp;
-                <a href="/auth/signup" className="green-link">Sign up</a>
-              </Card.Footer>
-            </Card>
-          </Col>
-          <Col className="justify-content-end d-md-flex">
-            <Image src="/cpm-logo.png" alt="Sign In" />
-          </Col>
-        </Row>
-      </Container>
-    </main>
+            <input
+              type="password"
+              placeholder="Password"
+              {...register('password')}
+              className={errors.password ? 'input-error' : ''}
+            />
+            <div className="error-text">{errors.password?.message}</div>
+
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              {...register('confirmPassword')}
+              className={errors.confirmPassword ? 'input-error' : ''}
+            />
+            <div className="error-text">{errors.confirmPassword?.message}</div>
+
+            <Button variant="outline-success" type="submit">Register</Button>
+          </Form>
+        </div>
+
+        <div className="form-container sign-in-container">
+          <Form onSubmit={handleSignIn}>
+            <h1>Sign in</h1>
+            <input name="email" type="email" placeholder="Email" required />
+            <input name="password" type="password" placeholder="Password" required />
+            <Button variant="outline-success" type="submit">Sign In</Button>
+          </Form>
+        </div>
+
+        <div className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-left">
+              <Image src="/cpm-nohands.png" alt="Campus Plate Mate Logo" width={200} />
+              <h2>Hello There!</h2>
+              <hr />
+              <p>Already have an account? Click the button below.</p>
+              <Button onClick={() => setIsRightPanelActive(false)} variant="outline-light">Sign In</Button>
+            </div>
+            <div className="overlay-panel overlay-right">
+              <Image src="/cpm-nohands.png" alt="Campus Plate Mate Logo" width={200} />
+              <h2>Welcome Back!</h2>
+              <hr />
+              <p>Don&apos;t have an account? Click the button below.</p>
+              <Button onClick={() => setIsRightPanelActive(true)} variant="outline-light">Sign Up</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
