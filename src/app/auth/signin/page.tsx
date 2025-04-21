@@ -73,7 +73,7 @@ const SignIn = () => {
     >
       <div className={`container slider-form-container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
         <div className="form-container sign-up-container">
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)} className="signin-form">
             <h1>Create Account</h1>
             <input
               type="email"
@@ -104,7 +104,7 @@ const SignIn = () => {
         </div>
 
         <div className="form-container sign-in-container">
-          <Form onSubmit={handleSignIn}>
+          <Form onSubmit={handleSignIn} className="signin-form">
             <h1>Sign in</h1>
             <input name="email" type="email" placeholder="Email" required />
             <input name="password" type="password" placeholder="Password" required />

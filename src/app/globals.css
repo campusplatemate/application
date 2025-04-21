@@ -161,7 +161,7 @@ input {
   z-index: 1;
 }
 
-form {
+.signin-form {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
