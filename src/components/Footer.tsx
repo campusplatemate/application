@@ -1,10 +1,11 @@
 import { Col, Container } from 'react-bootstrap';
+import { lato } from '@/fonts';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-dark">
+  <footer className="mt-auto py-3">
     <Container>
-      <Col className="text-center">
+      <Col className={`${lato.className} text-center`} style={{ fontSize: '14px' }}>
         Campus Plate Mate
         <br />
         Made by Kimi Li, Lou Rae Robles, Ka&apos;ili Benavente, Ruhi Pirnia, Naydel Espiritu, Jaylin Morimoto.
