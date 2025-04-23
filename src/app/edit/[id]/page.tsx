@@ -20,14 +20,14 @@ export default async function EditStuffPage() {
   // const stuff: Stuff | null = await prisma.stuff.findUnique({
   //   where: { id },
   // });
-  // // console.log(stuff);
+  // console.log(stuff);
   // if (!stuff) {
   //   return notFound();
   // }
 
-  return (
-    <main>
-      {/* <EditStuffForm stuff={stuff} /> */}
-    </main>
-  );
+  // return (
+  //   <main>
+  //     <EditStuffForm stuff={stuff} />
+  //   </main>
+  // );
 }
