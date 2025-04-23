@@ -2,7 +2,7 @@
   --nat-navbar-bg: rgb(123, 176, 84);
   --nat-navbar-bg-color: 123, 176, 84;
   --nat-navbar-bg-rgb: 123, 176, 84;
-  --nat-navbar-text-color: white;
+  --nat-navbar-text-color: 17, 36, 14;
 }
 
 .form-label {
@@ -34,6 +34,13 @@ footer,
 footer a {
   color: var(--nat-navbar-text-color);
 }
+
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .bg-dark a.dropdown-item {
   color: var(--nat-navbar-bg);
