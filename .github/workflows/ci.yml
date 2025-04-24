@@ -33,9 +33,9 @@ jobs:
 
       - run: curl https://install.meteor.com/ | sh
 
-#      - name: Run Meteor commands
-#        shell: bash -l {0}
-#        run: |
-#          meteor npm install
-#          meteor npm run lint
+      - name: Run Meteor commands
+        shell: bash -l {0}
+        run: |
+          meteor npm install
+          meteor npm run lint
 #          meteor npm run testcafe-ci
