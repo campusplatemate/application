@@ -1,4 +1,4 @@
-import { Kanit, Roboto, Lato, Bitter, Archivo_Black, Bungee_Spice, Lexend } from 'next/font/google';
+import { Kanit, Roboto, Lato, Bitter, Archivo_Black, Lexend } from 'next/font/google';
 
 export const kanit = Kanit({
   weight: '400',
@@ -21,11 +21,6 @@ export const roboto = Roboto({
 });
 
 export const archivo = Archivo_Black({
-  weight: ['400'],
-  subsets: ['latin'],
-});
-
-export const bungee = Bungee_Spice({
   weight: ['400'],
   subsets: ['latin'],
 });
