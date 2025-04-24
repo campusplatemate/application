@@ -3,6 +3,7 @@ name: ci-application
 on:
   push:
     branches:
+      - main
       - issue-19
 
 defaults:
