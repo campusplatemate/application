@@ -16,7 +16,17 @@
     { "title": "$20 Amazon Gift Card", "imageUrl": "amazon.png", "cost": 4500, "quantity": 10 },
     { "title": "$10 Dominos Gift Card", "imageUrl": "dominos.png", "cost": 3500, "quantity": 10 },
     { "title": "$10 Subway Gift Card", "imageUrl": "subway.png", "cost": 3500, "quantity": 10 }
+  ],
+
+  "defaultPosts": [
+    {
+      "owner": "john@foo.com",
+      "food": "Spam Musubi",
+      "quantity": 5,
+      "bestDate": "By the end of the day",
+      "location": "POST ICSpace",
+      "image": "spam.png",
+      "description": "Our organization has leftover spam musubi from our event. We are looking for people to take it home. Please pick it up by the end of the day."
+    }
   ]
 }
-
-

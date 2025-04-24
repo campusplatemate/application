@@ -9,28 +9,30 @@ import { prisma } from './prisma';
  * Adds a new stuff to the database.
  * @param stuff, an object with the following properties: name, quantity, owner, condition.
  */
-// export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
-//   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
-//   let condition: Condition = 'good';
-//   if (stuff.condition === 'poor') {
-//     condition = 'poor';
-//   } else if (stuff.condition === 'excellent') {
-//     condition = 'excellent';
-//   } else {
-//     condition = 'fair';
-//   }
-//   await prisma.stuff.create({
-//     data: {
-//       name: stuff.name,
-//       quantity: stuff.quantity,
-//       owner: stuff.owner,
-//       condition,
-//     },
-//   });
-//   // After adding, redirect to the list page
-//   redirect('/list');
-// }
 
+export async function createPost(post: {
+  description: string;
+  location: string;
+  food: string;
+  quantity: number;
+  bestDate: string;
+  image: string;
+  owner: string;
+}) {
+  // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
+
+  await prisma.post.create({
+    data: {
+      food: post.food,
+      quantity: post.quantity,
+      bestDate: post.bestDate,
+      location: post.location,
+      description: post.description,
+      image: post.image,
+      owner: post.owner,
+    },
+  });
+}
 /**
  * Edits an existing stuff in the database.
  * @param stuff, an object with the following properties: id, name, quantity, owner, condition.
