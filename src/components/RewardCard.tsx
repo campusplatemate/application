@@ -10,7 +10,7 @@ const RewardCard = ({ item }: { item: RewardItem }) => (
       <Card.Title>{item.name}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">
         {item.cost.toLocaleString()}
-        Points
+        &nbsp;Points
       </Card.Subtitle>
     </Card.Body>
   </Card>
