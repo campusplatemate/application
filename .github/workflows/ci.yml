@@ -3,15 +3,15 @@ name: ci-application
 on:
   push:
     branches:
-      - main
       - issue-19
 
 defaults:
   run:
-    working-directory: ./app  # Ensure this is the correct directory or remove it if unnecessary
+    working-directory: ./src/app
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -28,9 +28,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-
-      - name: List directory contents (for debugging)
-        run: ls -la  # This will show the file structure, so you can verify where your app is
 
       - run: npm ci --legacy-peer-deps
 
