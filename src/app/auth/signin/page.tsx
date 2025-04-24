@@ -64,14 +64,19 @@ const SignIn = () => {
   };
   /** */
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100%',
-    }}
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100%',
+        paddingBottom: '3rem',
+      }}
     >
-      <div className={`container slider-form-container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
+      <div
+        className={`container slider-form-container ${isRightPanelActive ? 'right-panel-active' : ''}`}
+        id="container"
+      >
         <div className="form-container sign-up-container">
           <Form onSubmit={handleSubmit(onSubmit)} className="signin-form">
             <h1>Create Account</h1>
@@ -99,7 +104,9 @@ const SignIn = () => {
             />
             <div className="error-text">{errors.confirmPassword?.message}</div>
 
-            <Button variant="outline-success" type="submit">Register</Button>
+            <Button variant="outline-success" type="submit">
+              Register
+            </Button>
           </Form>
         </div>
 
@@ -108,7 +115,9 @@ const SignIn = () => {
             <h1>Sign in</h1>
             <input name="email" type="email" placeholder="Email" required />
             <input name="password" type="password" placeholder="Password" required />
-            <Button variant="outline-success" type="submit">Sign In</Button>
+            <Button variant="outline-success" type="submit">
+              Sign In
+            </Button>
           </Form>
         </div>
 
@@ -119,14 +128,18 @@ const SignIn = () => {
               <h2>Hello There!</h2>
               <hr />
               <p>Already have an account? Click the button below.</p>
-              <Button onClick={() => setIsRightPanelActive(false)} variant="outline-light">Sign In</Button>
+              <Button onClick={() => setIsRightPanelActive(false)} variant="outline-light">
+                Sign In
+              </Button>
             </div>
             <div className="overlay-panel overlay-right">
               <Image src="/cpm-nohands.png" alt="Campus Plate Mate Logo" width={200} />
               <h2>Welcome Back!</h2>
               <hr />
               <p>Don&apos;t have an account? Click the button below.</p>
-              <Button onClick={() => setIsRightPanelActive(true)} variant="outline-light">Sign Up</Button>
+              <Button onClick={() => setIsRightPanelActive(true)} variant="outline-light">
+                Sign Up
+              </Button>
             </div>
           </div>
         </div>
