@@ -7,6 +7,7 @@ import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 import { Post } from '@/lib/validationSchemas';
 import FoodPostCard from '@/components/FoodPostCard';
+import { prisma } from '@/lib/prisma';
 
 /** Render a list of stuff for the logged in user. */
 const ListPage = async () => {
@@ -26,7 +27,7 @@ const ListPage = async () => {
   }); */
   // console.log(stuff);
 
-  const foodposts: Post[] = [
+  /* const foodposts: Post[] = [
     {
       owner: 'David One',
       foodName: 'Sandwich',
@@ -58,6 +59,14 @@ const ListPage = async () => {
       message: 'Some leftovers from a gathering.',
     },
   ];
+  */
+
+  const owner = session?.user!.email ? session.user.email : '';
+  const posts: Post[] = await prisma.post.findMany({
+    where: {
+      owner,
+    },
+  });
 
   return (
     <main>
@@ -67,9 +76,9 @@ const ListPage = async () => {
             <Col>
               <h2 className="text-center">Available Food</h2>
               <Row xs={1} md={2} lg={3} className="g-4">
-                {foodposts.map((foodpost) => (
-                  <Col key={foodpost.owner}>
-                    <FoodPostCard foodpost={foodpost} />
+                {posts.map((post) => (
+                  <Col key={post.owner}>
+                    <FoodPostCard post={post} />
                   </Col>
                 ))}
               </Row>
