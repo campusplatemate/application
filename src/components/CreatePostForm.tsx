@@ -7,9 +7,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import swal from 'sweetalert';
 import { redirect } from 'next/navigation';
-import { addStuff } from '@/lib/dbActions';
+import { createPost } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { AddStuffSchema } from '@/lib/validationSchemas';
+import { CreatePostSchema } from '@/lib/validationSchemas';
 import { Karla } from 'next/font/google';
 
 const karla = Karla({
@@ -18,15 +18,23 @@ const karla = Karla({
   variable: '--font-karla',
 });
 
-const onSubmit = async (data: { name: string; quantity: number; owner: string; condition: string }) => {
-  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
-  await addStuff(data);
-  swal('Success', 'Your item has been added', 'success', {
+const onSubmit = async (
+  data: {
+    food: string;
+    quantity: number;
+    bestDate: string;
+    image: string;
+    description: string;
+    location: string;
+    owner: string },
+) => {
+  await createPost(data);
+  swal('Success', 'Your post has been shared', 'success', {
     timer: 2000,
   });
 };
 
-const AddStuffForm: React.FC = () => {
+const CreatePostForm: React.FC = () => {
   const { data: session, status } = useSession();
   // console.log('AddStuffForm', status, session);
   const currentUser = session?.user?.email || '';
@@ -36,7 +44,10 @@ const AddStuffForm: React.FC = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(AddStuffSchema),
+    resolver: yupResolver(CreatePostSchema),
+    defaultValues: {
+      quantity: 0,
+    },
   });
   if (status === 'loading') {
     return <LoadingSpinner />;
@@ -49,7 +60,7 @@ const AddStuffForm: React.FC = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={8}>
-          <Card className="justify-content-center" style={{ minHeight: '475px' }}>
+          <Card className="shadow-sm">
             <Card.Body>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row className="justify-content-between align-items-center mb-2">
@@ -69,28 +80,28 @@ const AddStuffForm: React.FC = () => {
                       <Form.Label>Image</Form.Label>
                       <input
                         type="text"
-                        {...register('name')}
-                        className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                        {...register('image')}
+                        className={`form-control ${errors.image ? 'is-invalid' : ''}`}
                       />
-                      <div className="invalid-feedback">{errors.name?.message}</div>
+                      <div className="invalid-feedback">{errors.image?.message}</div>
                     </Form.Group>
                     <Form.Group>
                       <Form.Label>Location</Form.Label>
                       <input
                         type="text"
-                        {...register('name')}
-                        className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                        {...register('location')}
+                        className={`form-control ${errors.location ? 'is-invalid' : ''}`}
                       />
-                      <div className="invalid-feedback">{errors.name?.message}</div>
+                      <div className="invalid-feedback">{errors.location?.message}</div>
                     </Form.Group>
                     <Form.Group>
                       <Form.Label>Description</Form.Label>
                       <textarea
-                        {...register('name')}
+                        {...register('description')}
                         style={{ minHeight: '120px', minWidth: '100%' }}
-                        className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors.description ? 'is-invalid' : ''}`}
                       />
-                      <div className="invalid-feedback">{errors.name?.message}</div>
+                      <div className="invalid-feedback">{errors.description?.message}</div>
                     </Form.Group>
                   </Col>
                   <Col>
@@ -100,10 +111,10 @@ const AddStuffForm: React.FC = () => {
                       <Form.Label>Food</Form.Label>
                       <input
                         type="text"
-                        {...register('name')}
-                        className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                        {...register('food')}
+                        className={`form-control ${errors.food ? 'is-invalid' : ''}`}
                       />
-                      <div className="invalid-feedback">{errors.name?.message}</div>
+                      <div className="invalid-feedback">{errors.food?.message}</div>
                     </Form.Group>
                     <Form.Group>
                       <Form.Label>Quantity</Form.Label>
@@ -116,17 +127,12 @@ const AddStuffForm: React.FC = () => {
                     </Form.Group>
                     <Form.Group>
                       <Form.Label>Best Before:</Form.Label>
-                      <select
-                        {...register('condition')}
-                        className={`form-control ${errors.condition
+                      <input
+                        {...register('bestDate')}
+                        className={`form-control ${errors.bestDate
                           ? 'is-invalid' : ''}`}
-                      >
-                        <option value="excellent">Excellent</option>
-                        <option value="good">Good</option>
-                        <option value="fair">Fair</option>
-                        <option value="poor">Poor</option>
-                      </select>
-                      <div className="invalid-feedback">{errors.condition?.message}</div>
+                      />
+                      <div className="invalid-feedback">{errors.bestDate?.message}</div>
                     </Form.Group>
                   </Col>
                 </Row>
@@ -155,4 +161,4 @@ const AddStuffForm: React.FC = () => {
   );
 };
 
-export default AddStuffForm;
+export default CreatePostForm;

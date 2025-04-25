@@ -1,9 +1,10 @@
 import { getServerSession } from 'next-auth';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
-import AddStuffForm from '@/components/AddStuffForm';
+// eslint-disable-next-line import/extensions
+import CreatePostForm from '@/components/CreatePostForm';
 
-const AddStuff = async () => {
+const CreatePost = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -13,9 +14,9 @@ const AddStuff = async () => {
   );
   return (
     <main>
-      <AddStuffForm />
+      <CreatePostForm />
     </main>
   );
 };
 
-export default AddStuff;
+export default CreatePost;

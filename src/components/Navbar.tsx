@@ -4,7 +4,8 @@
 
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { kanit } from '@/fonts';
+import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
 
@@ -15,15 +16,25 @@ const NavBar: React.FC = () => {
   const role = userWithRole?.randomKey;
   const pathName = usePathname();
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Campus Plate Mate</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <Image src="/cpm-nohands.png" alt="Campus Plate Mate" width={60} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+          <Nav
+            className={`${kanit.className} me-auto justify-content-start`}
+            style={{ fontSize: '20px' }}
+          >
             {currentUser
               ? [
-                  <Nav.Link id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
+                  <Nav.Link
+                    id="list-stuff-nav"
+                    href="/list"
+                    key="list"
+                    active={pathName === '/list'}
+                  >
                     Dashboard
                   </Nav.Link>,
                   <Nav.Link id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
@@ -44,9 +55,8 @@ const NavBar: React.FC = () => {
           </Nav>
           <Nav>
             {session ? (
-              <NavDropdown id="login-dropdown" title={currentUser}>
+              <NavDropdown id="login-dropdown" title={currentUser} className="special-gothic-expanded-one-regular">
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
-
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
