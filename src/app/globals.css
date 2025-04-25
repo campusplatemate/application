@@ -257,3 +257,7 @@ input {
   width: 30px;
   height: 30px;
 }
+
+.dropdown-icon {
+  margin-right: 6px;
+}
