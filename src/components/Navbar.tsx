@@ -53,29 +53,37 @@ const NavBar: React.FC = () => {
               ''
             )}
           </Nav>
-          <Nav>
+          <Nav
+            className={`${kanit.className}`}
+            style={{ fontSize: '21px' }}
+          >
             {session ? (
-              <NavDropdown id="login-dropdown" title={currentUser} className="special-gothic-expanded-one-regular">
+              <NavDropdown
+                id="login-dropdown"
+                title={currentUser}
+                className={`${kanit.className}`}
+                style={{ fontSize: '18px' }}
+              >
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
-                  <BoxArrowRight />
+                  <BoxArrowRight className="dropdown-icon" />
                   Sign Out
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-change-password" href="/auth/change-password">
-                  <Lock />
+                  <Lock className="dropdown-icon" />
                   Change Password
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signin">
-                  <PersonFill />
+                  <PersonFill className="dropdown-icon" />
                   Sign in
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-up" href="/auth/signup">
-                  <PersonPlusFill />
+                  <PersonPlusFill className="dropdown-icon" />
                   Sign up
                 </NavDropdown.Item>
               </NavDropdown>
