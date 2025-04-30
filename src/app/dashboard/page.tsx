@@ -1,15 +1,17 @@
+/* eslint-disable import/extensions */
 /* eslint-disable max-len */
 import { getServerSession } from 'next-auth';
 import { Col, Container, Row } from 'react-bootstrap';
 /* import { prisma } from '@/lib/prisma';
 import StuffItem from '@/components/StuffItem'; */
+import { kanit } from '@/fonts';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 import { Post } from '@/lib/validationSchemas';
 import FoodPostCard from '@/components/FoodPostCard';
 
 /** Render a list of stuff for the logged in user. */
-const ListPage = async () => {
+const DashboardPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -48,7 +50,7 @@ const ListPage = async () => {
       message: 'My friends and I got full.',
     },
     {
-      owner: 'Stanley Three',
+      owner: 'Craig Ligma',
       foodName: 'Fried Chicken',
       quantity: 5,
       bestDate: '4-28-2025',
@@ -61,11 +63,11 @@ const ListPage = async () => {
 
   return (
     <main>
-      <Container id="list" fluid className="py-3">
+      <Container id="list" fluid className="p-3">
         <Container>
           <Row>
             <Col>
-              <h2 className="text-center">Available Food</h2>
+              <h2 className={`${kanit.className} text-center pb-3`}>Available Food</h2>
               <Row xs={1} md={2} lg={3} className="g-4">
                 {foodposts.map((foodpost) => (
                   <Col key={foodpost.owner}>
@@ -81,4 +83,4 @@ const ListPage = async () => {
   );
 };
 
-export default ListPage;
+export default DashboardPage;

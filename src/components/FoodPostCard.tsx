@@ -9,16 +9,25 @@ import { Post } from '@/lib/validationSchemas';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
 const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
-  <Card className="custom-card h-100">
+  <Card className="custom-card">
     <Card.Header>
-      Pick-up Location:&nbsp;
-      {foodpost.location}
+      Posted by &nbsp;
+      <Image
+        src={foodpost.faceImg}
+        width={50}
+        height={50}
+        roundedCircle
+        style={{ objectFit: 'cover' }}
+        className="border border-gray-300 p-1 rounded-[75%]"
+      />
+        &nbsp;
+      {foodpost.owner}
     </Card.Header>
-    <Card.Img variant="top" src={foodpost.foodImg} width={75} height={250} />
+    <Card.Img variant="top" src={foodpost.foodImg} className="" />
     <Card.Body>
       <Card.Title className="fw-bolder">{foodpost.foodName}</Card.Title>
       <p>
-        Qnty:&nbsp;
+        Quantity:&nbsp;
         {foodpost.quantity}
         <br />
         Best Before:&nbsp;
@@ -27,16 +36,14 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
       <hr />
       <Card.Subtitle>
         <p>
-          Donor:&nbsp;
-          <Image src={foodpost.faceImg} roundedCircle width={75} />
-        &nbsp;
-          {foodpost.owner}
+          Pick-up Location:&nbsp;
+          {foodpost.location}
         </p>
         <p className="text-muted">
           {foodpost.message}
         </p>
         <div className="text-center">
-          <Button variant="outline-success">Accept Donation</Button>
+          <Button variant="outline-success">Claim!</Button>
         </div>
       </Card.Subtitle>
     </Card.Body>
