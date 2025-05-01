@@ -4,8 +4,8 @@
 
 /* import { Stuff } from '@prisma/client';
 import Link from 'next/link'; */
-import { Button, Card, Image } from 'react-bootstrap';
-import { Post } from '@/lib/validationSchemas';
+import { Button, Card } from 'react-bootstrap';
+import { Post } from '@prisma/client';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
 const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
@@ -14,9 +14,9 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
       Pick-up Location:&nbsp;
       {foodpost.location}
     </Card.Header>
-    <Card.Img variant="top" src={foodpost.foodImg} width={75} height={250} />
+    <Card.Img variant="top" src={foodpost.image} width={75} height={250} />
     <Card.Body>
-      <Card.Title className="fw-bolder">{foodpost.foodName}</Card.Title>
+      <Card.Title className="fw-bolder">{foodpost.food}</Card.Title>
       <p>
         Qnty:&nbsp;
         {foodpost.quantity}
@@ -28,12 +28,11 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
       <Card.Subtitle>
         <p>
           Donor:&nbsp;
-          <Image src={foodpost.faceImg} roundedCircle width={75} />
         &nbsp;
           {foodpost.owner}
         </p>
         <p className="text-muted">
-          {foodpost.message}
+          {foodpost.description}
         </p>
         <div className="text-center">
           <Button variant="outline-success">Accept Donation</Button>

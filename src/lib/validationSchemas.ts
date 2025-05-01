@@ -17,14 +17,3 @@ export const EditStuffSchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
 });
-
-export interface Post {
-  faceImg: string;
-  foodName: string;
-  quantity: number;
-  bestDate: string;
-  foodImg: string;
-  location: string;
-  message: string;
-  owner: string;
-}
