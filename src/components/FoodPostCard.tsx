@@ -18,7 +18,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
         height={50}
         roundedCircle
         style={{ objectFit: 'cover' }}
-        className="border border-gray-300 p-1 rounded-[75%]"
+        className="border p-1 rounded-[75%]"
       />
         &nbsp;
       {foodpost.owner}

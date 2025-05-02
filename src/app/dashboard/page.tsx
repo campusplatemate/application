@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable max-len */
 import { getServerSession } from 'next-auth';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 /* import { prisma } from '@/lib/prisma';
 import StuffItem from '@/components/StuffItem'; */
 import { kanit } from '@/fonts';
@@ -63,20 +63,16 @@ const DashboardPage = async () => {
 
   return (
     <main>
-      <Container id="list" fluid className="p-3">
+      <Container className="pb-3">
         <Container>
-          <Row>
-            <Col>
-              <h2 className={`${kanit.className} text-center pb-3`}>Available Food</h2>
-              <Row xs={1} md={2} lg={3} className="g-4">
-                {foodposts.map((foodpost) => (
-                  <Col key={foodpost.owner}>
-                    <FoodPostCard foodpost={foodpost} />
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-          </Row>
+          <h2 className={`${kanit.className} text-center pb-3`}>Claim Food Here!</h2>
+          <div className="columnWrapper">
+            {foodposts.map((foodpost) => (
+              <div key={foodpost.owner} className="tile">
+                <FoodPostCard foodpost={foodpost} />
+              </div>
+            ))}
+          </div>
         </Container>
       </Container>
     </main>
