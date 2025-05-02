@@ -1,16 +1,18 @@
+/* eslint-disable import/extensions */
 /* eslint-disable max-len */
 import { getServerSession } from 'next-auth';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 /* import { prisma } from '@/lib/prisma';
 import StuffItem from '@/components/StuffItem'; */
+import { Post } from '@prisma/client';
+import { kanit } from '@/fonts';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
-import { Post } from '@prisma/client';
 import FoodPostCard from '@/components/FoodPostCard';
 import { prisma } from '@/lib/prisma';
 
 /** Render a list of stuff for the logged in user. */
-const ListPage = async () => {
+const DashboardPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -32,24 +34,20 @@ const ListPage = async () => {
 
   return (
     <main>
-      <Container id="list" fluid className="py-3">
+      <Container className="pb-3">
         <Container>
-          <Row>
-            <Col>
-              <h2 className="text-center">Available Food</h2>
-              <Row xs={1} md={2} lg={3} className="g-4">
-                {posts.map((post) => (
-                  <Col key={post.owner}>
-                    <FoodPostCard foodpost={post} />
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-          </Row>
+          <h2 className={`${kanit.className} text-center pb-3`}>Claim Food Here!</h2>
+          <div className="columnWrapper">
+            {posts.map((post) => (
+              <div key={post.owner} className="tile">
+                <FoodPostCard foodpost={post} />
+              </div>
+            ))}
+          </div>
         </Container>
       </Container>
     </main>
   );
 };
 
-export default ListPage;
+export default DashboardPage;

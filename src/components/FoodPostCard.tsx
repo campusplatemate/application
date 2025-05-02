@@ -4,21 +4,30 @@
 
 /* import { Stuff } from '@prisma/client';
 import Link from 'next/link'; */
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Image } from 'react-bootstrap';
 import { Post } from '@prisma/client';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
 const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
-  <Card className="custom-card h-100">
+  <Card className="custom-card">
     <Card.Header>
-      Pick-up Location:&nbsp;
-      {foodpost.location}
+      Posted by &nbsp;
+      <Image
+        src={foodpost.image}
+        width={50}
+        height={50}
+        roundedCircle
+        style={{ objectFit: 'cover' }}
+        className="border p-1 rounded-[75%]"
+      />
+        &nbsp;
+      {foodpost.owner}
     </Card.Header>
-    <Card.Img variant="top" src={foodpost.image} width={75} height={250} />
+    <Card.Img variant="top" src={foodpost.image} className="" />
     <Card.Body>
       <Card.Title className="fw-bolder">{foodpost.food}</Card.Title>
       <p>
-        Qnty:&nbsp;
+        Quantity:&nbsp;
         {foodpost.quantity}
         <br />
         Best Before:&nbsp;
@@ -27,15 +36,14 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
       <hr />
       <Card.Subtitle>
         <p>
-          Donor:&nbsp;
-        &nbsp;
-          {foodpost.owner}
+          Pick-up Location:&nbsp;
+          {foodpost.location}
         </p>
         <p className="text-muted">
           {foodpost.description}
         </p>
         <div className="text-center">
-          <Button variant="outline-success">Accept Donation</Button>
+          <Button variant="outline-success">Claim!</Button>
         </div>
       </Card.Subtitle>
     </Card.Body>

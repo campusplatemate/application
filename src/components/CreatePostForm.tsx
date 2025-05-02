@@ -10,13 +10,7 @@ import { redirect } from 'next/navigation';
 import { createPost } from '@/lib/dbActions';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { CreatePostSchema } from '@/lib/validationSchemas';
-import { Karla } from 'next/font/google';
-
-const karla = Karla({
-  subsets: ['latin'],
-  weight: '700',
-  variable: '--font-karla',
-});
+import { karla } from '@/fonts';
 
 const onSubmit = async (
   data: {
