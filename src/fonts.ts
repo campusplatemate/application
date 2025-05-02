@@ -42,6 +42,5 @@ export const quicksand = Quicksand({
 
 export const onest = Onest({
   weight: ['400', '500', '600'],
-
   subsets: ['latin'],
 });
