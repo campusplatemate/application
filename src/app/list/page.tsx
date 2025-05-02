@@ -27,12 +27,8 @@ const ListPage = async () => {
   }); */
   // console.log(stuff);
 
-  const owner = session?.user!.email ? session.user.email : '';
-  const posts: Post[] = await prisma.post.findMany({
-    where: {
-      owner,
-    },
-  });
+  /* const owner = session?.user!.email ? session.user.email : ''; */
+  const posts: Post[] = await prisma.post.findMany({});
 
   return (
     <main>
