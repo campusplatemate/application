@@ -1,4 +1,4 @@
-import { Kanit, Roboto, Lato, Bitter, Archivo_Black, Lexend, Karla } from 'next/font/google';
+import { Kanit, Roboto, Lato, Bitter, Archivo_Black, Lexend, Inter, Quicksand, Onest } from 'next/font/google';
 
 export const kanit = Kanit({
   weight: '400',
@@ -30,7 +30,18 @@ export const lexend = Lexend({
   subsets: ['latin'],
 });
 
-export const karla = Karla({
-  weight: '400',
+export const inter = Inter({
+  weight: ['400'],
+  subsets: ['latin'],
+});
+
+export const quicksand = Quicksand({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+});
+
+export const onest = Onest({
+  weight: ['400', '500', '600'],
+
   subsets: ['latin'],
 });

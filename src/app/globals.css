@@ -31,7 +31,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background: center fixed url('/green-ombre.jpg');
+  background-image: url('/background-landing.png');
   background-size: cover;
 }
 
@@ -278,4 +278,10 @@ input {
 
 .dropdown-icon {
   margin-right: 6px;
+}
+
+#login-dropdown {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
 }

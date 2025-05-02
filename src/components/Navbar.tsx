@@ -4,7 +4,7 @@
 
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { kanit } from '@/fonts';
+import { quicksand } from '@/fonts';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
@@ -24,11 +24,12 @@ const NavBar: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav
-            className={`${kanit.className} me-auto justify-content-start`}
-            style={{ fontSize: '20px' }}
+            className={`${quicksand.className} me-auto justify-content-start`}
+            style={{ fontSize: '18px', fontWeight: '500' }}
           >
             {currentUser
               ? [
+<<<<<<< Updated upstream
                   <Nav.Link
                     id="dashboard-nav"
                     href="/dashboard"
@@ -41,6 +42,21 @@ const NavBar: React.FC = () => {
                     Add Food
                   </Nav.Link>,
                   <Nav.Link id="rewards-nav" href="/rewards" key="rewards" active={pathName === '/rewards'}>
+=======
+                  <Nav.Link className="me-3" id="list-stuff-nav" href="/list" key="list" active={pathName === '/list'}>
+                    Dashboard
+                  </Nav.Link>,
+                  <Nav.Link className="me-3" id="add-stuff-nav" href="/add" key="add" active={pathName === '/add'}>
+                    Add Food
+                  </Nav.Link>,
+                  <Nav.Link
+                    className="me-3"
+                    id="list-stuff-nav"
+                    href="/rewards"
+                    key="rewards"
+                    active={pathName === '/rewards'}
+                  >
+>>>>>>> Stashed changes
                     Rewards
                   </Nav.Link>,
                 ]
@@ -53,16 +69,13 @@ const NavBar: React.FC = () => {
               ''
             )}
           </Nav>
-          <Nav
-            className={`${kanit.className}`}
-            style={{ fontSize: '21px' }}
-          >
+          <Nav className={`${quicksand.className}`} style={{ fontSize: '17px', fontWeight: '500' }}>
             {session ? (
               <NavDropdown
                 id="login-dropdown"
-                title={currentUser}
-                className={`${kanit.className}`}
-                style={{ fontSize: '18px' }}
+                title={<span className="navbar-login-title">{currentUser}</span>}
+                className={`${quicksand.className}`}
+                style={{ fontSize: '15px', fontWeight: '400' }}
               >
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
                   Profile
