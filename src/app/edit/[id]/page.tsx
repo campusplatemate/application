@@ -1,12 +1,12 @@
 import { getServerSession } from 'next-auth';
-// import { notFound } from 'next/navigation';
-// import { Stuff } from '@prisma/client';
+import { notFound } from 'next/navigation';
+import { Post } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
-// import { prisma } from '@/lib/prisma';
-// import EditStuffForm from '@/components/EditStuffForm';
+import { prisma } from '@/lib/prisma';
+import EditPostForm from '@/components/EditPostForm';
 
-export default async function EditStuffPage() {
+export default async function EditPostPage({ params }: { params: { id: string | string[] } }) {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -15,19 +15,19 @@ export default async function EditStuffPage() {
       // eslint-disable-next-line @typescript-eslint/comma-dangle
     } | null,
   );
-  // const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
-  // console.log(id);
-  // const stuff: Stuff | null = await prisma.stuff.findUnique({
-  //   where: { id },
-  // });
-  // console.log(stuff);
-  // if (!stuff) {
-  //   return notFound();
-  // }
+  const id = Number(Array.isArray(params?.id) ? params?.id[0] : params?.id);
+  console.log(id);
+  const post: Post | null = await prisma.post.findUnique({
+    where: { id },
+  });
+  // console.log(post);
+  if (!post) {
+    return notFound();
+  }
 
-  // return (
-  //   <main>
-  //     <EditStuffForm stuff={stuff} />
-  //   </main>
-  // );
+  return (
+    <main>
+      <EditPostForm post={post} />
+    </main>
+  );
 }

@@ -5,7 +5,9 @@
 /* import { Stuff } from '@prisma/client';
 import Link from 'next/link'; */
 import { Button, Card, Image } from 'react-bootstrap';
+import { Pencil } from 'react-bootstrap-icons';
 import { Post } from '@prisma/client';
+import Link from 'next/link';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
 const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
@@ -20,7 +22,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
         style={{ objectFit: 'cover' }}
         className="border p-1 rounded-[75%]"
       />
-        &nbsp;
+      &nbsp;
       {foodpost.owner}
     </Card.Header>
     <Card.Img variant="top" src={foodpost.image} className="" />
@@ -44,6 +46,12 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => (
         </p>
         <div className="text-center">
           <Button variant="outline-success">Claim!</Button>
+        </div>
+        <div className="d-flex justify-content-start mt-3">
+          <Link href={`edit/${foodpost.id}`} className="btn btn-light border">
+            Edit
+            <Pencil className="ms-2" />
+          </Link>
         </div>
       </Card.Subtitle>
     </Card.Body>
