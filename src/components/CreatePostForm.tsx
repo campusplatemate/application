@@ -100,7 +100,7 @@ const CreatePostForm: React.FC = () => {
                   </Col>
                   <Col>
                     <Image src="./patrick-1.png" alt="Patrick" roundedCircle width="40" height="40" className="mb-3" />
-                    <span className="mb-3 ms-2">username(?)</span>
+                    <span className="mb-3 ms-2">{currentUser}</span>
                     <Form.Group>
                       <Form.Label>Food</Form.Label>
                       <input
