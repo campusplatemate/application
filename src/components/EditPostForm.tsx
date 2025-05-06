@@ -1,26 +1,21 @@
 'use client';
 
 import { Button, Card, Col, Container, Form, Row, Image } from 'react-bootstrap';
-import { Send } from 'react-bootstrap-icons';
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Send } from 'react-bootstrap-icons';
+import { karla } from '@/fonts';
 import { Post } from '@prisma/client';
-import { Karla } from 'next/font/google';
 // eslint-disable-next-line import/extensions
 import { EditPostSchema } from '@/lib/validationSchemas';
 // eslint-disable-next-line import/extensions
 import { editPost } from '@/lib/dbActions';
 
-const karla = Karla({
-  subsets: ['latin'],
-  weight: '700',
-  variable: '--font-karla',
-});
-
 const onSubmit = async (data: Post) => {
+  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
   await editPost(data);
-  swal('Success', 'Your post has been edited', 'success', {
+  swal('Success', 'Your contact has been updated', 'success', {
     timer: 2000,
   });
 };
@@ -33,6 +28,7 @@ const EditPostForm = ({ post }: { post: Post }) => {
     formState: { errors },
   } = useForm<Post>({
     resolver: yupResolver(EditPostSchema),
+    defaultValues: post,
   });
   // console.log(stuff);
 
@@ -61,7 +57,6 @@ const EditPostForm = ({ post }: { post: Post }) => {
                       <Form.Label>Image</Form.Label>
                       <input
                         type="text"
-                        defaultValue={post.image}
                         {...register('image')}
                         className={`form-control ${errors.image ? 'is-invalid' : ''}`}
                       />
@@ -71,7 +66,6 @@ const EditPostForm = ({ post }: { post: Post }) => {
                       <Form.Label>Location</Form.Label>
                       <input
                         type="text"
-                        defaultValue={post.location}
                         {...register('location')}
                         className={`form-control ${errors.location ? 'is-invalid' : ''}`}
                       />
@@ -81,22 +75,19 @@ const EditPostForm = ({ post }: { post: Post }) => {
                       <Form.Label>Description</Form.Label>
                       <textarea
                         {...register('description')}
-                        defaultValue={post.description}
                         style={{ minHeight: '120px', minWidth: '100%' }}
                         className={`form-control ${errors.description ? 'is-invalid' : ''}`}
                       />
                       <div className="invalid-feedback">{errors.description?.message}</div>
                     </Form.Group>
-                    <input type="hidden" {...register('owner')} value={post.owner} />
                   </Col>
                   <Col>
-                    <Image src="/patrick-1.png" alt="Patrick" width="40" height="40" className="mb-3 rounded-circle" />
+                    <Image src="./patrick-1.png" alt="Patrick" roundedCircle width="40" height="40" className="mb-3" />
                     <span className="mb-3 ms-2">{post.owner}</span>
                     <Form.Group>
                       <Form.Label>Food</Form.Label>
                       <input
                         type="text"
-                        defaultValue={post.food}
                         {...register('food')}
                         className={`form-control ${errors.food ? 'is-invalid' : ''}`}
                       />
@@ -106,7 +97,6 @@ const EditPostForm = ({ post }: { post: Post }) => {
                       <Form.Label>Quantity</Form.Label>
                       <input
                         type="number"
-                        defaultValue={post.quantity}
                         {...register('quantity')}
                         className={`form-control ${errors.quantity ? 'is-invalid' : ''}`}
                       />
@@ -116,7 +106,6 @@ const EditPostForm = ({ post }: { post: Post }) => {
                       <Form.Label>Best Before:</Form.Label>
                       <input
                         {...register('bestDate')}
-                        defaultValue={post.bestDate}
                         className={`form-control ${errors.bestDate
                           ? 'is-invalid' : ''}`}
                       />
@@ -124,6 +113,7 @@ const EditPostForm = ({ post }: { post: Post }) => {
                     </Form.Group>
                   </Col>
                 </Row>
+                <input type="hidden" {...register('owner')} value={post.owner} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">
                     <Col>

@@ -33,6 +33,7 @@ export async function createPost(post: {
       owner: post.owner,
     },
   });
+  redirect('/dashboard');
 }
 /**
  * Edits an existing stuff in the database.
@@ -53,7 +54,7 @@ export async function editPost(post: Post) {
     },
   });
   // After updating, redirect to the list page
-  redirect('/list');
+  redirect('/dashboard');
 }
 
 // /**
