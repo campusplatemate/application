@@ -57,6 +57,20 @@ async function main() {
       },
     });
   });
+
+  config.defaultFeedback.forEach(async (feedback, index) => {
+    console.log(`  Adding feedback: ${JSON.stringify(feedback)}`);
+    // eslint-disable-next-line no-await-in-loop
+    await prisma.feedback.upsert({
+      where: { id: index },
+      update: {},
+      create: {
+        name: feedback.name,
+        email: feedback.email,
+        message: feedback.message,
+      },
+    });
+  });
 }
 
 main()

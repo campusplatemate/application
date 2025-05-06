@@ -6,8 +6,9 @@ import { redirect } from 'next/navigation';
 import { prisma } from './prisma';
 
 /**
- * Adds a new stuff to the database.
- * @param stuff, an object with the following properties: name, quantity, owner, condition.
+ * Adds a new post to the database.
+ * @param post, an object with the following properties:
+ * description, location, food, quantity, best date, image, and owner.
  */
 
 export async function createPost(post: {
@@ -67,6 +68,23 @@ export async function editPost(post: Post) {
 //   // After deleting, redirect to the list page
 //   redirect('/list');
 // }
+
+/**
+ * Adds a new feedback to the database.
+ * @param feedback, an object with the following properties: name, email, and message.
+ */
+
+export async function createFeedback(feedback: { name: string; email: string; message: string }) {
+  // console.log(`createFeedback data: ${JSON.stringify(stuff, null, 2)}`);
+
+  await prisma.feedback.create({
+    data: {
+      name: feedback.name,
+      email: feedback.email,
+      message: feedback.message,
+    },
+  });
+}
 
 /**
  * Creates a new user in the database.
