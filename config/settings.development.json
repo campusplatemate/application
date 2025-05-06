@@ -28,5 +28,14 @@
       "image": "spam.png",
       "description": "Our organization has leftover spam musubi from our event. We are looking for people to take it home. Please pick it up by the end of the day."
     }
+  ],
+
+  "defaultFeedback": [
+    {
+      "name": "Craig Ligma",
+      "email": "craig.ligma@gmail.com",
+      "message": "I'm hungry for leftovers!"
+    }
   ]
+
 }

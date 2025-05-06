@@ -1,23 +1,24 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { Github } from 'react-bootstrap-icons';
-import FeedbackForm from './FeedbackForm';
+import { lato, lexend } from '@/fonts';
+import CreateFeedbackForm from './CreateFeedbackForm';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-dark text-light">
+  <footer className="mt-auto py-3 text-light" style={{ backgroundColor: '#d3d3d3' }}>
     <Container>
       <Row>
         <Col>
           <div className="d-flex justify-content-center">
             <p className="mb-0 text-black">
-              <strong>
+              <strong className={`${lexend.className}`}>
                 Campus Plate Mate is proudly developed by Kimi Li, Lou Rae Robles,
                 <br />
                 Ka&apos;ili Benavente, Ruhi Pirnia, Naydel Espiritu, and Jaylin Morimoto.
               </strong>
               <br />
               <br />
-              <small className="x-small">
+              <small className={`${lato.className} text-start x-small`}>
                 ICS 314 Software Engineering
                 <br />
                 University of Hawaii at Manoa
@@ -33,10 +34,7 @@ const Footer = () => (
         <Col>
           <div className="d-flex justify-content-center">
             <div>
-              <p className="mb-2 text-black text-left">
-                <strong>Got leftovers? Let&apos;s chat.</strong>
-              </p>
-              <FeedbackForm />
+              <CreateFeedbackForm />
             </div>
           </div>
         </Col>
