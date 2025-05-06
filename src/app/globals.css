@@ -285,3 +285,8 @@ input {
   font-size: 18px;
   font-weight: 500;
 }
+
+.filter-dropdown {
+  background-color: white !important;
+  color: black !important;
+}
