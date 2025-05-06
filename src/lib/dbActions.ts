@@ -57,18 +57,18 @@ export async function editPost(post: Post) {
   redirect('/dashboard');
 }
 
-// /**
-//  * Deletes an existing stuff from the database.
-//  * @param id, the id of the stuff to delete.
-//  */
-// export async function deleteStuff(id: number) {
-//   // console.log(`deleteStuff id: ${id}`);
-//   await prisma.stuff.delete({
-//     where: { id },
-//   });
-//   // After deleting, redirect to the list page
-//   redirect('/list');
-// }
+/**
+ * Deletes an existing post from the database.
+ * @param id, the id of the post to delete.
+ */
+export async function deletePost(id: number) {
+  // console.log(`deleteStuff id: ${id}`);
+  await prisma.post.delete({
+    where: { id },
+  });
+  // After deleting, redirect to the list page
+  // redirect('/dashboard');
+}
 
 /**
  * Adds a new feedback to the database.
