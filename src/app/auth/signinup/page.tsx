@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /* eslint-disable max-len */
 
 'use client';
@@ -17,7 +18,7 @@ type SignUpForm = {
 };
 
 /** The sign in/up page. */
-const SignIn = () => {
+const SignInUp = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -148,4 +149,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInUp;

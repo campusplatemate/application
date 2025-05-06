@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { kanit } from '@/fonts';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
-import { BoxArrowRight, Lock, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Lock, PersonFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
 
 const NavBar: React.FC = () => {
@@ -78,13 +78,9 @@ const NavBar: React.FC = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="login-dropdown" title="Login">
-                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signin">
+                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signinup">
                   <PersonFill className="dropdown-icon" />
-                  Sign in
-                </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" href="/auth/signup">
-                  <PersonPlusFill className="dropdown-icon" />
-                  Sign up
+                  Sign in/up
                 </NavDropdown.Item>
               </NavDropdown>
             )}
