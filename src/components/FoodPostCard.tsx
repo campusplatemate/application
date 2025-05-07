@@ -17,11 +17,11 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
   const currentUserEmail = session?.user?.email;
   const router = useRouter();
 
-  const handleDelete = async () => {
+  const handleDelete = async (postId: number) => {
     const userConfirmed = window.confirm('Are you sure?');
     if (!userConfirmed) return;
 
-    const res = await fetch(`/api/posts/${foodpost.id}`, {
+    const res = await fetch(`/api/posts/${postId}`, {
       method: 'DELETE',
     });
 
@@ -77,7 +77,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
                   Edit
                   <Pencil className="ms-2" />
                 </Link>
-                <Button variant="outline-danger" onClick={handleDelete}>
+                <Button variant="outline-danger" onClick={() => handleDelete(foodpost.id)}>
                   Delete
                 </Button>
               </>
