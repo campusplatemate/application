@@ -1,7 +1,9 @@
 'use client';
 
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { RewardItem } from '@prisma/client';
+import { lexend } from '@/fonts';
+import Link from 'next/link';
 
 const RewardCard = ({ item }: { item: RewardItem }) => (
   <Card className="custom-card h-100">
@@ -12,6 +14,11 @@ const RewardCard = ({ item }: { item: RewardItem }) => (
         {item.cost.toLocaleString()}
         &nbsp;Points
       </Card.Subtitle>
+      <Link href={`/checkout/${item.id}`} passHref>
+        <Button className={`${lexend.className} rewardButton mt-2`} type="button">
+          Redeem
+        </Button>
+      </Link>
     </Card.Body>
   </Card>
 );
