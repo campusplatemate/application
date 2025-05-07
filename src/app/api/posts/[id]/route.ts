@@ -5,7 +5,11 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const DELETE = async (request: Request, { params }: { params: { id: string } }) => {
+// eslint-disable-next-line import/prefer-default-export
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } },
+) {
   const id = Number(params.id);
 
   try {
@@ -15,6 +19,4 @@ const DELETE = async (request: Request, { params }: { params: { id: string } }) 
     console.error('DELETE /api/posts/[id] error:', error);
     return NextResponse.json({ error: 'Error deleting post' }, { status: 500 });
   }
-};
-
-export default DELETE;
+}
