@@ -54,6 +54,15 @@ const EditPostForm = ({ post }: { post: Post }) => {
                 <Row>
                   <Col>
                     <Form.Group>
+                      <Form.Label>Name</Form.Label>
+                      <input
+                        type="text"
+                        {...register('ownerName')}
+                        className={`form-control ${errors.ownerName ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.ownerName?.message}</div>
+                    </Form.Group>
+                    <Form.Group>
                       <Form.Label>Image</Form.Label>
                       <input
                         type="text"

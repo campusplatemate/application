@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
 export const CreatePostSchema = Yup.object({
+  ownerName: Yup.string().required(),
   food: Yup.string().required(),
   quantity: Yup.number().positive().required(),
   bestDate: Yup.string().required(),
@@ -12,6 +13,7 @@ export const CreatePostSchema = Yup.object({
 
 export const EditPostSchema = Yup.object({
   id: Yup.number().required(),
+  ownerName: Yup.string().required(),
   food: Yup.string().required(),
   quantity: Yup.number().positive().required(),
   bestDate: Yup.string().required(),
