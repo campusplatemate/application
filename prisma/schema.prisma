@@ -28,6 +28,7 @@ model User {
   email    String @unique
   password String
   role     Role   @default(USER)
+  points   Int    @default(0)
 }
 
 model RewardItem {

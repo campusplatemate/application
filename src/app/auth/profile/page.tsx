@@ -1,6 +1,6 @@
 'use client';
 
-import { Image, Container, Row, Col, Nav, Card } from 'react-bootstrap';
+import { Image, Container, Row, Col, Tabs, Tab } from 'react-bootstrap';
 
 const Profile = () => (
   <main>
@@ -17,50 +17,14 @@ const Profile = () => (
         <strong className="d-flex justify-content-center">Patrick Star</strong>
       </Row>
     </Container>
-    <Nav className="justify-content-center" id="profile-nav">
-      <Nav.Item className="mx-3">
-        <strong>Posts</strong>
-      </Nav.Item>
-      <Nav.Item className="mx-3">
-        <strong>Picked Up</strong>
-      </Nav.Item>
-    </Nav>
-    <Container>
-      <Row className="g-4 justify-content-start" id="profile-cards">
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/spam.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Spam</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/pizza.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Pizza</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/oreo.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Oreo</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/icecream.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Ice Cream</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <Tabs defaultActiveKey="profile" id="justify-tab-example" className="mb-3 mt-5" justify>
+      <Tab eventKey="post" title="Posts">
+        Tab content for Home
+      </Tab>
+      <Tab eventKey="picked-up" title="Picked Up">
+        Tab content for Profile
+      </Tab>
+    </Tabs>
   </main>
 );
 
