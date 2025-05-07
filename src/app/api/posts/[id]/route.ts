@@ -5,6 +5,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+// eslint-disable-next-line import/prefer-default-export
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } },
@@ -19,5 +20,3 @@ export async function DELETE(
     return NextResponse.json({ error: 'Error deleting post' }, { status: 500 });
   }
 }
-
-export default DELETE;
