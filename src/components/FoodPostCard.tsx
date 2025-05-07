@@ -27,7 +27,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
           className="border p-1 rounded-[75%]"
         />
         &nbsp;
-        {foodpost.owner}
+        {foodpost.ownerName}
       </Card.Header>
       <Card.Img variant="top" src={foodpost.image} className="" />
       <Card.Body>

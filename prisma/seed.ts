@@ -47,6 +47,7 @@ async function main() {
       where: { id: index },
       update: {},
       create: {
+        ownerName: post.ownerName,
         food: post.food,
         quantity: post.quantity,
         bestDate: post.bestDate,

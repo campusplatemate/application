@@ -14,6 +14,7 @@ import { karla } from '@/fonts';
 
 const onSubmit = async (
   data: {
+    ownerName: string;
     food: string;
     quantity: number;
     bestDate: string;
@@ -70,6 +71,15 @@ const CreatePostForm: React.FC = () => {
                 </Row>
                 <Row>
                   <Col>
+                    <Form.Group>
+                      <Form.Label>Name</Form.Label>
+                      <input
+                        type="text"
+                        {...register('ownerName')}
+                        className={`form-control ${errors.ownerName ? 'is-invalid' : ''}`}
+                      />
+                      <div className="invalid-feedback">{errors.ownerName?.message}</div>
+                    </Form.Group>
                     <Form.Group>
                       <Form.Label>Image</Form.Label>
                       <input

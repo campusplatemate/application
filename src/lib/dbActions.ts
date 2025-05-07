@@ -12,6 +12,7 @@ import { prisma } from './prisma';
  */
 
 export async function createPost(post: {
+  ownerName: string;
   description: string;
   location: string;
   food: string;
@@ -24,6 +25,7 @@ export async function createPost(post: {
 
   await prisma.post.create({
     data: {
+      ownerName: post.ownerName,
       food: post.food,
       quantity: post.quantity,
       bestDate: post.bestDate,
@@ -44,6 +46,7 @@ export async function editPost(post: Post) {
   await prisma.post.update({
     where: { id: post.id },
     data: {
+      ownerName: post.ownerName,
       food: post.food,
       quantity: post.quantity,
       bestDate: post.bestDate,

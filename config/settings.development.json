@@ -20,6 +20,7 @@
 
   "defaultPosts": [
     {
+      "ownerName": "John Doe",
       "owner": "john@foo.com",
       "food": "Spam Musubi",
       "quantity": 5,
