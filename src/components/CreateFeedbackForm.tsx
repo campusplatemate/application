@@ -73,7 +73,7 @@ const CreateFeedbackForm: React.FC = () => {
                 <Col>
                   <Button
                     className={`${lexend.className}`}
-                    style={{ width: '430px', backgroundColor: '#000000' }}
+                    style={{ width: '430px', backgroundColor: '#000000', borderColor: '#000000' }}
                     type="submit"
                   >
                     Submit

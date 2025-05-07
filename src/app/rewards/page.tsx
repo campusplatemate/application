@@ -4,6 +4,7 @@ import authOptions from '@/lib/authOptions';
 import { RewardItem } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import RewardsClient from '@/components/RewardsClient';
+import { lexend } from '@/fonts';
 
 const RewardsPage = async () => {
   const session = await getServerSession(authOptions);
@@ -17,6 +18,7 @@ const RewardsPage = async () => {
 
   return (
     <main>
+      <h1 className={`${lexend.className} mb-0 text-center`}>Rewards</h1>
       <RewardsClient rewards={rewards} />
     </main>
   );
