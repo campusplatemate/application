@@ -41,7 +41,7 @@ async function main() {
   }
 
   config.defaultPosts.forEach(async (post, index) => {
-    console.log(`  Adding contact: ${JSON.stringify(post)}`);
+    console.log(`  Adding post: ${JSON.stringify(post)}`);
     // eslint-disable-next-line no-await-in-loop
     await prisma.post.upsert({
       where: { id: index },
@@ -59,11 +59,11 @@ async function main() {
     });
   });
 
-  config.defaultFeedback.forEach(async (feedback, index) => {
+  config.defaultFeedback.forEach(async (feedback) => {
     console.log(`  Adding feedback: ${JSON.stringify(feedback)}`);
     // eslint-disable-next-line no-await-in-loop
     await prisma.feedback.upsert({
-      where: { id: index },
+      where: { email: feedback.email },
       update: {},
       create: {
         name: feedback.name,

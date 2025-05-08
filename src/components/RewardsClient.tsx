@@ -21,8 +21,7 @@ const RewardsClient = ({ rewards }: RewardsClientProps) => {
   return (
     <Container fluid className="py-3 px-3">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h1 className="mb-0">Rewards</h1>
-        <Dropdown onSelect={(val) => setSortOrder(val as 'asc' | 'desc')}>
+        <Dropdown className="ps-4 pb-3" onSelect={(val) => setSortOrder(val as 'asc' | 'desc')}>
           <Dropdown.Toggle variant="secondary" className="filter-dropdown">
             Sort by Points
           </Dropdown.Toggle>

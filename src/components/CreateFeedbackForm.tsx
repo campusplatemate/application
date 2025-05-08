@@ -27,7 +27,7 @@ const CreateFeedbackForm: React.FC = () => {
   return (
     <Container>
       <p className={`${lexend.className} mb-0 text-black text-left`}>
-        <strong>Got leftovers? Let&apos;s chat.</strong>
+        <strong>Got feedback? Let&apos;s chat.</strong>
       </p>
       <Row className="justify-content-center">
         <Card className="shadow-none bg-transparent border-0">
@@ -73,7 +73,7 @@ const CreateFeedbackForm: React.FC = () => {
                 <Col>
                   <Button
                     className={`${lexend.className}`}
-                    style={{ width: '430px', backgroundColor: '#000000' }}
+                    style={{ width: '430px', backgroundColor: '#000000', borderColor: '#000000' }}
                     type="submit"
                   >
                     Submit

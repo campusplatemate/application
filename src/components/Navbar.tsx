@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import { quicksand } from '@/fonts';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
-import { BoxArrowRight, Lock, PersonFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Lock, Person, PersonFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
 
 const NavBar: React.FC = () => {
@@ -24,16 +24,15 @@ const NavBar: React.FC = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav
-            className={`${quicksand.className} me-auto justify-content-start`}
-            style={{ fontSize: '18px', fontWeight: '500' }}
+            className={`${kanit.className} me-auto justify-content-start`}
+            style={{ fontSize: '20px' }}
           >
             {currentUser
               ? [
                   <Nav.Link
-                    className="me-3"
                     id="dashboard-nav"
                     href="/dashboard"
-                    key="dashboard"
+                    key="list"
                     active={pathName === '/dashboard'}
                   >
                     Dashboard
@@ -60,7 +59,10 @@ const NavBar: React.FC = () => {
               ''
             )}
           </Nav>
-          <Nav className={`${quicksand.className}`} style={{ fontSize: '17px', fontWeight: '500' }}>
+          <Nav
+            className={`${kanit.className}`}
+            style={{ fontSize: '21px' }}
+          >
             {session ? (
               <NavDropdown
                 id="login-dropdown"
@@ -69,6 +71,7 @@ const NavBar: React.FC = () => {
                 style={{ fontSize: '15px', fontWeight: '400' }}
               >
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
+                  <Person className="dropdown-icon" />
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
