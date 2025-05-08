@@ -146,10 +146,19 @@
 
   "defaultFeedback": [
     {
+      "name": "Jane Doe",
+      "email": "jane.doe@hawaii.com",
+      "message": "I enjoyed browsing through your dashboard. The food options look delicious."
+    },
+    {
+      "name": "John Pork",
+      "email": "john.pork@hawaii.edu",
+      "message": "I think the font size could be increased a tad bit to improve accessibility."
+    },
+    {
       "name": "Craig Ligma",
-      "email": "craig.ligma@gmail.com",
-      "message": "I'm hungry for leftovers!"
+      "email": "craig.ligma@hawaii.edu",
+      "message": "Love the plates!"
     }
   ]
-
 }

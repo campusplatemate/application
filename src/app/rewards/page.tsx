@@ -8,6 +8,7 @@ import { lexend } from '@/fonts';
 
 const RewardsPage = async () => {
   const session = await getServerSession(authOptions);
+  // Protect the page, only logged in users can access it.
   loggedInProtectedPage(
     session as {
       user: { email: string; id: string; randomKey: string };

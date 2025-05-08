@@ -27,7 +27,7 @@ const CreateFeedbackForm: React.FC = () => {
   return (
     <Container>
       <p className={`${lexend.className} mb-0 text-black text-left`}>
-        <strong>Got leftovers? Let&apos;s chat.</strong>
+        <strong>Got feedback? Let&apos;s chat.</strong>
       </p>
       <Row className="justify-content-center">
         <Card className="shadow-none bg-transparent border-0">
