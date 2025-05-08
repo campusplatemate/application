@@ -1,9 +1,5 @@
-/* eslint-disable import/extensions */
-/* eslint-disable max-len */
 import { getServerSession } from 'next-auth';
 import { Container } from 'react-bootstrap';
-/* import { prisma } from '@/lib/prisma';
-import StuffItem from '@/components/StuffItem'; */
 import { Post } from '@prisma/client';
 import { kanit } from '@/fonts';
 import { loggedInProtectedPage } from '@/lib/page-protection';
