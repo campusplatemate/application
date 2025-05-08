@@ -61,12 +61,6 @@ const CreatePostForm: React.FC = () => {
                   <Col xs="auto">
                     <h2 className={`text-center ${karla.className}`}>Post A Bite</h2>
                   </Col>
-                  <Col xs="auto" className="text-end">
-                    <Button style={{ width: '125px' }} type="submit" className="submitButton">
-                      Share
-                      <Send className="ms-2" />
-                    </Button>
-                  </Col>
                 </Row>
                 <Row>
                   <Col>
@@ -141,6 +135,12 @@ const CreatePostForm: React.FC = () => {
                         className="mt-3 float-right resetButton"
                       >
                         Discard
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Button style={{ width: '125px' }} type="submit" className="mt-3 float-left submitButton">
+                        Share
+                        <Send className="ms-2" />
                       </Button>
                     </Col>
                     <Row />
