@@ -130,7 +130,7 @@ const CreatePostForm: React.FC = () => {
                       <div className="invalid-feedback">{errors.quantity?.message}</div>
                     </Form.Group>
                     <Form.Group>
-                      <Form.Label>Best Before:</Form.Label>
+                      <Form.Label>Best Before</Form.Label>
                       <input
                         {...register('bestDate')}
                         className={`form-control ${errors.bestDate

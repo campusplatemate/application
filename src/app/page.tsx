@@ -2,6 +2,7 @@
 
 import { Image, Card, Col, Container, Row } from 'react-bootstrap';
 import { lato, lexend } from '@/fonts';
+import Link from 'next/link';
 
 /** The Home page. */
 const Home = () => (
@@ -18,6 +19,11 @@ const Home = () => (
                 excess food with those in need. By using our platform, you can help reduce food waste and promote
                 sustainability on campus. Join us in our mission to create a more sustainable future for our community.
               </Card.Body>
+              <Link href="/auth/signinup">
+                <button type="button" className="login btn btn-primary mx-3 my-2">
+                  Login Here
+                </button>
+              </Link>
             </Card>
           </Col>
           <Col md={6} className="text-center">
@@ -26,7 +32,7 @@ const Home = () => (
         </Row>
       </Container>
 
-      <Container className="">
+      <Container>
         <Row className="align-middle text-center">
           <Row className="d-flex justify-content-center align-items-center gap-6 py-5 my-4">
             <Col xs={6}>
@@ -38,8 +44,8 @@ const Home = () => (
             <Col xs={6}>
               <Container>
                 <Card className="h-100 bg-transparent border-0">
-                  <Card.Title className={`${lexend.className}`}>Our Goal</Card.Title>
-                  <Card.Body className={lato.className}>
+                  <Card.Title className={`${lexend.className} display-6`}>Our Goal</Card.Title>
+                  <Card.Body className={`${lato.className} fs-5`}>
                     We aim to reduce food waste island wide by providing a secure platform for the UH Manoa community to
                     share unused or unwanted food items, promoting sustainability even beyond our campus.
                   </Card.Body>
@@ -53,8 +59,8 @@ const Home = () => (
             <Col xs={6}>
               <Container>
                 <Card className="h-100 bg-transparent border-0">
-                  <Card.Title className={`${lexend.className}`}>Sharing Food</Card.Title>
-                  <Card.Body className={lato.className}>
+                  <Card.Title className={`${lexend.className} display-6`}>Sharing Food</Card.Title>
+                  <Card.Body className={`${lato.className} fs-5`}>
                     With your login, list your unwanted food on the dashboard. Keep an eye on notifications of other
                     users claiming your food and arranging a pickup. Earn points for each food item you list that gets
                     claimed!
@@ -81,8 +87,8 @@ const Home = () => (
             <Col xs={6}>
               <Container>
                 <Card className="h-100 bg-transparent border-0">
-                  <Card.Title className={`${lexend.className}`}>Claiming Food</Card.Title>
-                  <Card.Body className={lato.className}>
+                  <Card.Title className={`${lexend.className} display-6`}>Claiming Food</Card.Title>
+                  <Card.Body className={`${lato.className} fs-5`}>
                     With your login, scroll through the dashboard to find any listed food products you&apos;re
                     interested in. Claim the food and arrange a pickup with the user who listed it. Earn points for each
                     food item you claim!

@@ -304,3 +304,20 @@ input {
   background-color: white !important;
   color: black !important;
 }
+
+/* styling for login button */
+.login {
+  font-family: var(--font-dm-sans), sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  background-color: darkorange !important;
+  border: none !important;
+  max-width: 150px;
+  min-height: 50px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: rgb(255, 123, 0) !important;
+  }
+}
