@@ -30,9 +30,12 @@ const DashboardPage = async () => {
 
   return (
     <main>
-      <Container className="pb-3">
+      <Container className="p-3">
         <Container>
-          <h2 className={`${kanit.className} text-center pb-3`}>Available Food</h2>
+          <h1 className={`${kanit.className} text-center`}>Dashboard</h1>
+          <h6 className={`${kanit.className} text-center pb-3`}>
+            All food availble to claim!
+          </h6>
           <div className="columnWrapper">
             {posts.map((post) => (
               <div key={post.owner} className="tile">
