@@ -40,22 +40,31 @@ const SignInUp = () => {
     resolver: yupResolver(validationSchema),
   });
 
+  const [signInError, setSignInError] = useState('');
+
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSignInError('');
+
     const target = e.target as typeof e.target & {
       email: { value: string };
       password: { value: string };
     };
+
     const email = target.email.value;
     const password = target.password.value;
+
     const result = await signIn('credentials', {
-      callbackUrl: '/dashboard',
+      redirect: false,
       email,
       password,
     });
 
     if (result?.error) {
       console.error('Sign in failed: ', result.error);
+      setSignInError('Invalid email or password');
+    } else {
+      window.location.href = '/dashboard';
     }
   };
 
@@ -71,7 +80,8 @@ const SignInUp = () => {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100%',
-        paddingBottom: '3rem',
+        paddingTop: '5rem',
+        paddingBottom: '10rem',
       }}
     >
       <div
@@ -116,6 +126,7 @@ const SignInUp = () => {
             <h1>Sign in</h1>
             <input name="email" type="email" placeholder="Email" required />
             <input name="password" type="password" placeholder="Password" required />
+            {signInError && <div className="error-text mb-2">{signInError}</div>}
             <Button variant="outline-success" type="submit">
               Sign In
             </Button>
