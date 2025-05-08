@@ -41,7 +41,7 @@ async function main() {
   }
 
   config.defaultPosts.forEach(async (post, index) => {
-    console.log(`  Adding contact: ${JSON.stringify(post)}`);
+    console.log(`  Adding post: ${JSON.stringify(post)}`);
     // eslint-disable-next-line no-await-in-loop
     await prisma.post.upsert({
       where: { id: index },

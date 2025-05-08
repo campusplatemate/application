@@ -1,7 +1,10 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "ADMIN" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "johnpork@hawaii.edu", "password": "changeme" },
+    { "email": "craig.ligma@hawaii.edu", "password": "changeme" },
+    { "email": "janedoe@hawaii.edu", "password": "changeme" }
   ],
 
   "RewardItems": [
@@ -26,8 +29,118 @@
       "quantity": 5,
       "bestDate": "By the end of the day",
       "location": "POST ICSpace",
-      "image": "spam.png",
+      "image": "https://www.kimschob.com/wp-content/uploads/2024/07/Hawaiian-Spam-Musubi.jpg",
       "description": "Our organization has leftover spam musubi from our event. We are looking for people to take it home. Please pick it up by the end of the day."
+    },
+    {
+      "ownerName": "John Doe",
+      "owner": "john@foo.com",
+      "food": "Pizza",
+      "quantity": 4,
+      "bestDate": "Tomorrow morning",
+      "location": "Shidler (by Bean Counter)",
+      "image": "https://assets.surlatable.com/m/15a89c2d9c6c1345/72_dpi_webp-REC-283110_Pizza.jpg",
+      "description": "Our organization has leftover pizza from our event. We are looking for people to take it home."
+    },
+    {
+      "ownerName": "Craig Ligma",
+      "owner": "craig.ligma@hawaii.edu",
+      "food": "Spring Rolls",
+      "quantity": 18,
+      "bestDate": "By the end of the day",
+      "location": "Campus Center Food Court",
+      "image": "https://www.elmundoeats.com/wp-content/uploads/2024/02/Crispy-spring-rolls.jpg",
+      "description": "Leftovers! Please take them home. We have a lot of them."
+    },
+    {
+      "ownerName": "Craig Ligma",
+      "owner": "craig.ligma@hawaii.edu",
+      "food": "Sushi",
+      "quantity": 10,
+      "bestDate": "By the end of the day",
+      "location": "Campus Center Food Court",
+      "image": "https://s3-media0.fl.yelpcdn.com/bphoto/M6ezLvjTSy3XvQKohyOUcg/1000s.jpg",
+      "description": "Leftovers! Please take them home. We have a lot of them."
+    },
+    {
+      "ownerName": "Craig Ligma",
+      "owner": "craig.ligma@hawaii.edu",
+      "food": "Chicken Wings",
+      "quantity": 6,
+      "bestDate": "Noon",
+      "location": "Outside ITS Building",
+      "image": "https://www.foodie.com/img/gallery/what-does-popeyes-fry-its-beloved-chicken-in/l-intro-1738597790.jpg",
+      "description": "Popeyes leftovers."
+    },
+    {
+      "ownerName": "Jane Doe",
+      "owner": "jane@hawaii.edu",
+      "food": "Cupcakes",
+      "quantity": 12,
+      "bestDate": "Today 5pm",
+      "location": "POST ICSpace",
+      "image": "https://cdn.shopify.com/s/files/1/0163/5948/9636/files/smartCookieCupcakes6.jpg",
+      "description": "We have a dozen cupcakes left over from our social."
+    },
+    {
+      "ownerName": "Jane Doe",
+      "owner": "jane@hawaii.edu",
+      "food": "Cookies",
+      "quantity": 12,
+      "bestDate": "Today 5pm",
+      "location": "POST ICSpace",
+      "image": "https://static01.nyt.com/images/2022/02/12/dining/JT-Chocolate-Chip-Cookies/JT-Chocolate-Chip-Cookies-threeByTwoMediumAt2X.jpg",
+      "description": "We have a dozen cookies left over from our social."
+    },
+    {
+      "ownerName": "Jane Doe",
+      "owner": "jane@hawaii.edu",
+      "food": "Fruit",
+      "quantity": 12,
+      "bestDate": "Today 5pm",
+      "location": "POST ICSpace",
+      "image": "https://www.momsandmunchkins.ca/wp-content/uploads/2015/05/Fruit_Wands.jpg",
+      "description": "Fruit skewers left over from our gathering."
+    },
+    {
+      "ownerName": "John Doe",
+      "owner": "john@foo.com",
+      "food": "Brownies",
+      "quantity": 12,
+      "bestDate": "Today 3pm",
+      "location": "POST ICSpace",
+      "image": "https://sweetsavoryandsteph.com/wp-content/uploads/2021/05/IMG_1037-scaled.jpg",
+      "description": "Please have some brownies!"
+    },
+    {
+      "ownerName": "John Pork",
+      "owner": "johnpork@hawaii.edu",
+      "food": "Lechon Kawali",
+      "quantity": 1,
+      "bestDate": "End of today",
+      "location": "POST ICSpace",
+      "image": "https://static01.nyt.com/images/2023/11/28/multimedia/ND-Lechon-Kawali-bflv/ND-Lechon-Kawali-bflv-mediumSquareAt3X.jpg",
+      "description": "A bowl of lechon kawali (pork) from my birthday party."
+    },
+    {
+      "ownerName": "John Pork",
+      "owner": "johnpork@hawaii.edu",
+      "food": "Chips",
+      "quantity": 3,
+      "bestDate": "Today 7pm",
+      "location": "POST ICSpace",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNaIeVVgoBAwbnvAxUms9XIlPeAA6QWh-UMQ&s",
+      "description": "Unopened bags of chips, party size."
+    },
+    {
+      "ownerName": "John Doe",
+      "owner": "john@foo.com",
+      "food": "Bento",
+      "quantity": 2,
+      "bestDate": "Tomorrow morning",
+      "location": "Kuykendall Hall",
+      "image": "https://dining.staradvertiser.com/wp-content/uploads/2018/02/DO-021118-ALC-Story-2-Aja-1.jpg",
+      "description": "I ordered too many bento boxes."
     }
   ],
 
