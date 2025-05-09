@@ -71,27 +71,29 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
             {foodpost.description}
           </p>
           <div className="text-center gap-2 mt-3">
-            {currentUserEmail === foodpost.owner ? (
+            {currentUserEmail === foodpost.owner && (
               <>
                 <Button variant="outline-success">Claim!</Button>
                 <br />
-                <Row>
-                  <Col className="text-start">
-                    <Link href={`/edit/${foodpost.id}`} className="btn btn-light border mt-3">
-                      Edit
-                      <Pencil className="ms-2" />
-                    </Link>
-                  </Col>
-                  <Col className="text-end">
-                    <Button variant="outline-danger" className="mt-3" onClick={handleDelete}>
-                      Delete
-                    </Button>
-                  </Col>
-                </Row>
               </>
-            ) : (
-              <Button variant="outline-success">Claim!</Button>
             )}
+            <Row>
+              {currentUserEmail === foodpost.owner && (
+                <Col className="text-start">
+                  <Link href={`/edit/${foodpost.id}`} className="btn btn-light border mt-3">
+                    Edit
+                    <Pencil className="ms-2" />
+                  </Link>
+                </Col>
+              )}
+              {(currentUserEmail === foodpost.owner || currentUserEmail === 'admin@foo.com') && (
+                <Col className="text-end">
+                  <Button variant="outline-danger" className="mt-3" onClick={handleDelete}>
+                    Delete
+                  </Button>
+                </Col>
+              )}
+            </Row>
           </div>
         </Card.Subtitle>
       </Card.Body>
