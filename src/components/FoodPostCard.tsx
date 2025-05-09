@@ -5,10 +5,9 @@
 
 /* import { Stuff } from '@prisma/client';
 import Link from 'next/link'; */
-import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Button, Card, Col, Image, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Pencil } from 'react-bootstrap-icons';
 import { Post } from '@prisma/client';
 import Link from 'next/link';
@@ -17,7 +16,6 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
   const { data: session } = useSession();
   const currentUserEmail = session?.user?.email;
   const router = useRouter();
-  const [claimed, setClaimed] = useState(false);
 
   const handleDelete = async () => {
     const userConfirmed = window.confirm('Are you sure?');
@@ -37,41 +35,11 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
     }
   };
 
-  const handleClaim = async () => {
-    console.log('Sending postId:', foodpost.id); // 👈 Add this line
-
-    const res = await fetch('/api/posts/claim', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ postId: foodpost.id }),
-    });
-
-    if (res.ok) {
-      alert('Post claimed!');
-      setClaimed(true);
-      router.refresh();
-    } else {
-      const err = await res.json().catch(() => ({}));
-      console.error('Claim failed:', err);
-      alert('Failed to claim post.');
-    }
-  };
-  if (claimed) return null;
   return (
     <Card className="custom-card">
       <Card.Header className="float-start">
-        Posted by &nbsp;
-        <Image
-          src={foodpost.image}
-          alt={`${foodpost.owner}'s post image`}
-          width={50}
-          height={50}
-          roundedCircle
-          style={{ objectFit: 'cover' }}
-          className="border p-1 rounded-[75%]"
-        />
-        &nbsp;
-        {foodpost.ownerName}
+        Posted by&nbsp;
+        <strong>{foodpost.ownerName}</strong>
       </Card.Header>
       <Card.Img variant="top" src={foodpost.image} alt={foodpost.food} className="" />
       <Card.Body>
@@ -89,31 +57,33 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
             Pick-up Location:&nbsp;
             {foodpost.location}
           </p>
-          <p className="text-muted">{foodpost.description}</p>
+          <p className="text-muted">
+            {foodpost.description}
+          </p>
           <div className="text-center gap-2 mt-3">
-            {currentUserEmail === foodpost.owner ? (
+            {currentUserEmail === foodpost.owner && (
               <>
                 <Button variant="outline-success">Claim!</Button>
                 <br />
-                <Row>
-                  <Col className="text-start">
-                    <Link href={`/edit/${foodpost.id}`} className="btn btn-light border mt-3">
-                      Edit
-                      <Pencil className="ms-2" />
-                    </Link>
-                  </Col>
-                  <Col className="text-end">
-                    <Button variant="outline-danger" className="mt-3" onClick={handleDelete}>
-                      Delete
-                    </Button>
-                  </Col>
-                </Row>
               </>
-            ) : (
-              <Button variant="outline-success" onClick={handleClaim}>
-                Claim!
-              </Button>
             )}
+            <Row>
+              {currentUserEmail === foodpost.owner && (
+                <Col className="text-start">
+                  <Link href={`/edit/${foodpost.id}`} className="btn btn-light border mt-3">
+                    Edit
+                    <Pencil className="ms-2" />
+                  </Link>
+                </Col>
+              )}
+              {(currentUserEmail === foodpost.owner || currentUserEmail === 'admin@foo.com') && (
+                <Col className="text-end">
+                  <Button variant="outline-danger" className="mt-3" onClick={handleDelete}>
+                    Delete
+                  </Button>
+                </Col>
+              )}
+            </Row>
           </div>
         </Card.Subtitle>
       </Card.Body>

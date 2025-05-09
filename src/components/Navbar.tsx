@@ -23,37 +23,19 @@ const NavBar: React.FC = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={`${kanit.className} me-auto justify-content-start`} style={{ fontSize: '20px' }}>
+          <Nav
+            className={`${kanit.className} me-auto justify-content-start`}
+            style={{ fontSize: '20px' }}
+          >
             {currentUser
               ? [
-                  <Nav.Link
-                    id="dashboard-nav"
-                    href="/dashboard"
-                    key="list"
-                    active={pathName === '/dashboard'}
-                    style={{ fontSize: '20px' }}
-                    className={`${lexend.className}`}
-                  >
+                  <Nav.Link id="dashboard-nav" href="/dashboard" key="list" active={pathName === '/dashboard'}>
                     Dashboard
                   </Nav.Link>,
-                  <Nav.Link
-                    id="add-food-nav"
-                    href="/add"
-                    key="add"
-                    active={pathName === '/add'}
-                    style={{ fontSize: '20px' }}
-                    className={`${lexend.className}`}
-                  >
+                  <Nav.Link id="add-food-nav" href="/add" key="add" active={pathName === '/add'}>
                     Add Food
                   </Nav.Link>,
-                  <Nav.Link
-                    id="rewards-nav"
-                    href="/rewards"
-                    key="rewards"
-                    style={{ fontSize: '20px' }}
-                    active={pathName === '/rewards'}
-                    className={`${lexend.className}`}
-                  >
+                  <Nav.Link id="rewards-nav" href="/rewards" key="rewards" active={pathName === '/rewards'}>
                     Rewards
                   </Nav.Link>,
                 ]
@@ -72,14 +54,12 @@ const NavBar: React.FC = () => {
               ''
             )}
           </Nav>
-          <Nav
-            className={`${lexend.className}`}
-            style={{ fontSize: '21px' }}
-          >
+          <Nav className={`${kanit.className}`} style={{ fontSize: '21px' }}>
             {session ? (
               <NavDropdown
                 id="login-dropdown"
                 title={currentUser}
+                className={`${kanit.className}`}
                 style={{ fontSize: '18px' }}
               >
                 <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile" className={`${lexend.className}`}>
