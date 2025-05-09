@@ -7,7 +7,7 @@
 import Link from 'next/link'; */
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Button, Card, Col, Image, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { Pencil } from 'react-bootstrap-icons';
 import { Post } from '@prisma/client';
 import Link from 'next/link';
@@ -38,18 +38,8 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
   return (
     <Card className="custom-card">
       <Card.Header className="float-start">
-        Posted by &nbsp;
-        <Image
-          src={foodpost.image}
-          alt={`${foodpost.owner}'s post image`}
-          width={50}
-          height={50}
-          roundedCircle
-          style={{ objectFit: 'cover' }}
-          className="border p-1 rounded-[75%]"
-        />
-        &nbsp;
-        {foodpost.ownerName}
+        Posted by&nbsp;
+        <strong>{foodpost.ownerName}</strong>
       </Card.Header>
       <Card.Img variant="top" src={foodpost.image} alt={foodpost.food} className="" />
       <Card.Body>
