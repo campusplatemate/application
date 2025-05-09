@@ -26,7 +26,7 @@ const CreateFeedbackForm: React.FC = () => {
 
   return (
     <Container>
-      <p className={`${lexend.className} mb-0 text-black text-left`}>
+      <p className={`${lexend.className} mb-0 text-left`}>
         <strong>Got feedback? Let&apos;s chat.</strong>
       </p>
       <Row className="justify-content-center">

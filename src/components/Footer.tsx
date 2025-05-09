@@ -5,12 +5,12 @@ import CreateFeedbackForm from './CreateFeedbackForm';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 text-light" style={{ backgroundColor: '#d3d3d3' }}>
+  <footer className="mt-auto py-3 text-white" style={{ backgroundColor: '#234F1E' }}>
     <Container>
       <Row>
         <Col>
           <div className="d-flex justify-content-center">
-            <p className="mb-0 text-black">
+            <p className="mb-0">
               <strong className={`${lexend.className}`}>
                 Campus Plate Mate is proudly developed by Kimi Li, Lou Rae Robles,
                 <br />

@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
   const role = userWithRole?.randomKey;
   const pathName = usePathname();
   return (
-    <Navbar bg="" expand="lg" style={{ backgroundColor: '#d3d3d3' }}>
+    <Navbar bg="" className="text-white" expand="lg" style={{ backgroundColor: '#234F1E' }}>
       <Container>
         <Navbar.Brand href="/">
           <Image src="/cpm-nohands.png" alt="Campus Plate Mate" width={60} />
