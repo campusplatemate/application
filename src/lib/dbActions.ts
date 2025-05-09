@@ -33,6 +33,7 @@ export async function createPost(post: {
       description: post.description,
       image: post.image,
       owner: post.owner,
+      claimedBy: null,
     },
   });
   redirect('/dashboard');
