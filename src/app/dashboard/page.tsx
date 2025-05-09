@@ -26,16 +26,14 @@ const DashboardPage = async () => {
   // console.log(stuff);
 
   /* const owner = session?.user!.email ? session.user.email : ''; */
-  const posts: Post[] = await prisma.post.findMany({});
+  const posts: Post[] = await prisma.post.findMany({ where: { claimedBy: null } });
 
   return (
     <main>
       <Container className="p-3">
         <Container>
           <h1 className={`${kanit.className} text-center`}>Dashboard</h1>
-          <h6 className={`${kanit.className} text-center pb-3`}>
-            All food availble to claim!
-          </h6>
+          <h6 className={`${kanit.className} text-center pb-3`}>All food availble to claim!</h6>
           <div className="columnWrapper">
             {posts.map((post) => (
               <div key={post.owner} className="tile">

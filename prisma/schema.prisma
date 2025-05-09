@@ -47,7 +47,8 @@ model Post {
   image        String 
   location     String
   description  String
-  owner        String      
+  owner        String   
+  claimedBy    String? //new created by Kimi
   createdAt    DateTime  @default(now())
 }
 

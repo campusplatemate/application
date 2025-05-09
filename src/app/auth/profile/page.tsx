@@ -1,67 +1,69 @@
 'use client';
 
-import { Image, Container, Row, Col, Nav, Card } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { Image, Container, Row, Col, Tabs, Tab } from 'react-bootstrap';
+import { lexend } from '@/fonts';
+import { Post } from '@prisma/client';
+import dynamic from 'next/dynamic';
 
-const Profile = () => (
-  <main>
-    <div className="text-center mb-4">
-      <Image src="../profile-banner-1.png" alt="Profile Banner" fluid id="banner-image" />
-    </div>
-    <Container className="align-items-center">
-      <Row className="d-flex justify-content-center">
-        <Col xs="auto" className="justify-content-center">
-          <Image src="../patrick-1.png" alt="Patrick" roundedCircle id="profile-image" />
-        </Col>
-      </Row>
-      <Row className="d-flex justify-content-center">
-        <strong className="d-flex justify-content-center">Patrick Star</strong>
-      </Row>
-    </Container>
-    <Nav className="justify-content-center" id="profile-nav">
-      <Nav.Item className="mx-3">
-        <strong>Posts</strong>
-      </Nav.Item>
-      <Nav.Item className="mx-3">
-        <strong>Picked Up</strong>
-      </Nav.Item>
-    </Nav>
-    <Container>
-      <Row className="g-4 justify-content-start" id="profile-cards">
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/spam.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Spam</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/pizza.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Pizza</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/oreo.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Oreo</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="h-100">
-            <Card.Img variant="top" src="/icecream.png" style={{ height: '200px', objectFit: 'cover' }} />
-            <Card.Body>
-              <Card.Title>Ice Cream</Card.Title>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  </main>
-);
+// Dynamically import FoodPostCard (Client Component)
+const FoodPostCard = dynamic(() => import('@/components/FoodPostCard'), { ssr: false });
+
+const Profile = () => {
+  const [claimedPosts, setClaimedPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchClaimedPosts = async () => {
+      const res = await fetch('/api/posts/claimed');
+      if (res.ok) {
+        const data = await res.json();
+        setClaimedPosts(data);
+      }
+    };
+
+    fetchClaimedPosts();
+  }, []);
+
+  return (
+    <main>
+      <div className="text-center mb-4">
+        <Image src="../profile-banner-1.png" alt="Profile Banner" fluid id="banner-image" />
+      </div>
+      <Container className="align-items-center">
+        <Row className="d-flex justify-content-center">
+          <Col xs="auto" className="justify-content-center">
+            <Image src="../patrick-1.png" alt="Patrick" roundedCircle id="profile-image" />
+          </Col>
+        </Row>
+        <Row className="d-flex justify-content-center">
+          <strong className="d-flex justify-content-center">Patrick Star</strong>
+        </Row>
+      </Container>
+      <Tabs
+        defaultActiveKey="post"
+        id="justify-tab-example"
+        className={`${lexend.className} mb-3 mt-5`}
+        justify
+      >
+        <Tab eventKey="post" title="Posts">
+          <p className="text-center pt-3">Your posts will go here.</p>
+        </Tab>
+        <Tab eventKey="picked-up" title="Picked Up">
+          {claimedPosts.length > 0 ? (
+            <div className="columnWrapper p-3">
+              {claimedPosts.map((post) => (
+                <div key={post.id} className="tile">
+                  <FoodPostCard foodpost={post} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center pt-3">You haven’t claimed any food yet.</p>
+          )}
+        </Tab>
+      </Tabs>
+    </main>
+  );
+};
 
 export default Profile;

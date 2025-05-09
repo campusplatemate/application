@@ -5,6 +5,7 @@
 
 /* import { Stuff } from '@prisma/client';
 import Link from 'next/link'; */
+import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Button, Card, Col, Image, Row } from 'react-bootstrap';
@@ -16,6 +17,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
   const { data: session } = useSession();
   const currentUserEmail = session?.user?.email;
   const router = useRouter();
+  const [claimed, setClaimed] = useState(false);
 
   const handleDelete = async () => {
     const userConfirmed = window.confirm('Are you sure?');
@@ -35,6 +37,26 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
     }
   };
 
+  const handleClaim = async () => {
+    console.log('Sending postId:', foodpost.id); // 👈 Add this line
+
+    const res = await fetch('/api/posts/claim', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ postId: foodpost.id }),
+    });
+
+    if (res.ok) {
+      alert('Post claimed!');
+      setClaimed(true);
+      router.refresh();
+    } else {
+      const err = await res.json().catch(() => ({}));
+      console.error('Claim failed:', err);
+      alert('Failed to claim post.');
+    }
+  };
+  if (claimed) return null;
   return (
     <Card className="custom-card">
       <Card.Header className="float-start">
@@ -67,9 +89,7 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
             Pick-up Location:&nbsp;
             {foodpost.location}
           </p>
-          <p className="text-muted">
-            {foodpost.description}
-          </p>
+          <p className="text-muted">{foodpost.description}</p>
           <div className="text-center gap-2 mt-3">
             {currentUserEmail === foodpost.owner ? (
               <>
@@ -90,7 +110,9 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
                 </Row>
               </>
             ) : (
-              <Button variant="outline-success">Claim!</Button>
+              <Button variant="outline-success" onClick={handleClaim}>
+                Claim!
+              </Button>
             )}
           </div>
         </Card.Subtitle>
