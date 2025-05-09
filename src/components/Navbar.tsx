@@ -4,9 +4,9 @@
 
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { quicksand, kanit } from '@/fonts';
+import { kanit } from '@/fonts';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
-import { BoxArrowRight, Lock, Person, PersonFill } from 'react-bootstrap-icons';
+import { BoxArrowRight, Lock, PersonFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
 
 const NavBar: React.FC = () => {
@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
   const role = userWithRole?.randomKey;
   const pathName = usePathname();
   return (
-    <Navbar bg="" expand="lg">
+    <Navbar bg="" expand="lg" style={{ backgroundColor: '#d3d3d3' }}>
       <Container>
         <Navbar.Brand href="/">
           <Image src="/cpm-nohands.png" alt="Campus Plate Mate" width={60} />
@@ -29,65 +29,64 @@ const NavBar: React.FC = () => {
           >
             {currentUser
               ? [
-                  <Nav.Link
-                    id="dashboard-nav"
-                    href="/dashboard"
-                    key="list"
-                    active={pathName === '/dashboard'}
-                  >
+                  <Nav.Link id="dashboard-nav" href="/dashboard" key="list" active={pathName === '/dashboard'}>
                     Dashboard
                   </Nav.Link>,
-                  <Nav.Link className="me-3" id="add-food-nav" href="/add" key="add" active={pathName === '/add'}>
+                  <Nav.Link id="add-food-nav" href="/add" key="add" active={pathName === '/add'}>
                     Add Food
                   </Nav.Link>,
-                  <Nav.Link
-                    className="me-3"
-                    id="rewards-nav"
-                    href="/rewards"
-                    key="rewards"
-                    active={pathName === '/rewards'}
-                  >
+                  <Nav.Link id="rewards-nav" href="/rewards" key="rewards" active={pathName === '/rewards'}>
                     Rewards
                   </Nav.Link>,
                 ]
               : ''}
             {currentUser && role === 'ADMIN' ? (
-              <Nav.Link id="admin-stuff-nav" href="/admin" key="admin" active={pathName === '/admin'}>
+              <Nav.Link
+                id="admin-stuff-nav"
+                href="/admin"
+                key="admin"
+                active={pathName === '/admin'}
+                className={`${lexend.className}`}
+              >
                 Admin
               </Nav.Link>
             ) : (
               ''
             )}
           </Nav>
-          <Nav
-            className={`${kanit.className}`}
-            style={{ fontSize: '21px' }}
-          >
+          <Nav className={`${kanit.className}`} style={{ fontSize: '21px' }}>
             {session ? (
               <NavDropdown
                 id="login-dropdown"
-                title={<span className="navbar-login-title">{currentUser}</span>}
-                className={`${quicksand.className}`}
-                style={{ fontSize: '15px', fontWeight: '400' }}
+                title={currentUser}
+                className={`${kanit.className}`}
+                style={{ fontSize: '18px' }}
               >
-                <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile">
-                  <Person className="dropdown-icon" />
+                <NavDropdown.Item id="login-dropdown-profile" href="/auth/profile" className={`${lexend.className}`}>
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-out" href="/api/auth/signout">
+                <NavDropdown.Item
+                  id="login-dropdown-sign-out"
+                  href="/api/auth/signout"
+                  className={`${lexend.className}`}
+                >
                   <BoxArrowRight className="dropdown-icon" />
                   Sign Out
                 </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-change-password" href="/auth/change-password">
+                <NavDropdown.Item
+                  id="login-dropdown-change-password"
+                  href="/auth/change-password"
+                  className={`${lexend.className}`}
+                >
                   <Lock className="dropdown-icon" />
                   Change Password
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown id="login-dropdown" title="Login">
-                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signinup">
+                <NavDropdown.Item id="login-dropdown-sign-in" href="/auth/signinup" className={`${lexend.className}`}>
                   <PersonFill className="dropdown-icon" />
-                  Sign in/up
+                  Sign In/Up
                 </NavDropdown.Item>
               </NavDropdown>
             )}
