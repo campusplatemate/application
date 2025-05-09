@@ -7,7 +7,7 @@
 import Link from 'next/link'; */
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Button, Card, Col, Image, Row } from 'react-bootstrap';
 import { Pencil } from 'react-bootstrap-icons';
 import { Post } from '@prisma/client';
 import Link from 'next/link';
@@ -17,11 +17,11 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
   const currentUserEmail = session?.user?.email;
   const router = useRouter();
 
-  const handleDelete = async (postId: number) => {
+  const handleDelete = async () => {
     const userConfirmed = window.confirm('Are you sure?');
     if (!userConfirmed) return;
 
-    const res = await fetch(`/api/posts/${postId}`, {
+    const res = await fetch(`/api/posts/${foodpost.id}`, {
       method: 'DELETE',
     });
 
@@ -70,16 +70,24 @@ const FoodPostCard = ({ foodpost }: { foodpost: Post }) => {
           <p className="text-muted">
             {foodpost.description}
           </p>
-          <div className="d-flex justify-content-center gap-2 mt-3">
+          <div className="text-center gap-2 mt-3">
             {currentUserEmail === foodpost.owner ? (
               <>
-                <Link href={`/edit/${foodpost.id}`} className="btn btn-light border">
-                  Edit
-                  <Pencil className="ms-2" />
-                </Link>
-                <Button variant="outline-danger" onClick={() => handleDelete(foodpost.id)}>
-                  Delete
-                </Button>
+                <Button variant="outline-success">Claim!</Button>
+                <br />
+                <Row>
+                  <Col className="text-start">
+                    <Link href={`/edit/${foodpost.id}`} className="btn btn-light border mt-3">
+                      Edit
+                      <Pencil className="ms-2" />
+                    </Link>
+                  </Col>
+                  <Col className="text-end">
+                    <Button variant="outline-danger" className="mt-3" onClick={handleDelete}>
+                      Delete
+                    </Button>
+                  </Col>
+                </Row>
               </>
             ) : (
               <Button variant="outline-success">Claim!</Button>
