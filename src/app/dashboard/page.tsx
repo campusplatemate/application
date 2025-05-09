@@ -34,7 +34,7 @@ const DashboardPage = async () => {
         <Container>
           <h1 className={`${kanit.className} text-center`}>Dashboard</h1>
           <h6 className={`${kanit.className} text-center pb-3`}>
-            All food availble to claim!
+            All food available to claim!
           </h6>
           <div className="columnWrapper">
             {posts.map((post) => (
