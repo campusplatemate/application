@@ -1,26 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["dataProxy"]
 }
 
 datasource db {
-  provider  = "postgresql"
-  // for local development
+  provider = "postgresql"
   url      = env("DATABASE_URL")
-  // for Vercel
-  // url       = env("POSTGRES_PRISMA_URL")
-  //directUrl = env("POSTGRES_URL_NON_POOLING")
-}
-
-enum Role {
-  USER
-  ADMIN
 }
 
 model User {
@@ -28,34 +13,38 @@ model User {
   email    String @unique
   password String
   role     Role   @default(USER)
-  points   Int    @default(0)
 }
 
 model RewardItem {
-  id           Int       @id @default(autoincrement())
-  name         String    @unique
-  cost         Int
-  imageUrl     String
-  quantity     Int      @default(0)
+  id       Int    @id @default(autoincrement())
+  name     String @unique
+  cost     Int
+  imageUrl String
+  quantity Int    @default(0)
 }
 
 model Post {
-  id           Int       @id @default(autoincrement())
-  ownerName    String
-  food         String
-  quantity     Int
-  bestDate     String
-  image        String 
-  location     String
-  description  String
-  owner        String      
-  createdAt    DateTime  @default(now())
+  id          Int      @id @default(autoincrement())
+  food        String
+  quantity    Int
+  bestDate    String
+  image       String
+  location    String
+  description String
+  owner       String
+  createdAt   DateTime @default(now())
+  ownerName   String
 }
 
 model Feedback {
-  id           Int       @id @default(autoincrement())
-  name         String
-  email        String    @unique
-  message      String
-  createdAt    DateTime  @default(now())
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  message   String
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
 }
