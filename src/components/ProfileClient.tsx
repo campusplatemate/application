@@ -6,9 +6,8 @@ import { Container, Row, Col, Image, Tabs, Tab } from 'react-bootstrap';
 import { lexend } from '../fonts';
 import FoodPostCard from './FoodPostCard';
 
-const ProfileClient = ({ claimedPosts, createdPosts }: { claimedPosts: Post[]; createdPosts: Post[] }) => {
+const ProfileClient = ({ createdPosts }: { createdPosts: Post[] }) => {
   const [ownedPosts] = useState<Post[]>(createdPosts);
-  const [claimed] = useState<Post[]>(claimedPosts);
 
   return (
     <main>
@@ -39,19 +38,6 @@ const ProfileClient = ({ claimedPosts, createdPosts }: { claimedPosts: Post[]; c
             </div>
           ) : (
             <p className="text-center pt-3">You haven’t added any posts yet.</p>
-          )}
-        </Tab>
-        <Tab eventKey="picked-up" title="Picked Up">
-          {claimed.length > 0 ? (
-            <div className="columnWrapper p-3">
-              {claimed.map((post) => (
-                <div key={post.id} className="tile">
-                  <FoodPostCard foodpost={post} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center pt-3">You haven’t claimed any food yet.</p>
           )}
         </Tab>
       </Tabs>

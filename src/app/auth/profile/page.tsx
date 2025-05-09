@@ -12,14 +12,11 @@ const ProfilePage = async () => {
     return redirect('/auth/signinup');
   }
 
-  const claimedPosts = await prisma.post.findMany({
-    where: { claimedBy: session.user.email },
-  });
   const createdPosts = await prisma.post.findMany({
     where: { owner: session.user.email },
   });
 
-  return <ProfileClient claimedPosts={claimedPosts} createdPosts={createdPosts} />;
+  return <ProfileClient createdPosts={createdPosts} />;
 };
 
 export default ProfilePage;
