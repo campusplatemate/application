@@ -4,7 +4,7 @@
 
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
-import { quicksand } from '@/fonts';
+import { quicksand, kanit } from '@/fonts';
 import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import { BoxArrowRight, Lock, Person, PersonFill } from 'react-bootstrap-icons';
 // import ProfilePage from './ProfilePage';
